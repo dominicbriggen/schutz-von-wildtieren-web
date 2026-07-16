@@ -187,6 +187,7 @@ export default async function HomePage() {
                     src={latestNews.cover_image_url}
                     alt={latestNews.title}
                     fill
+                    quality={82}
                     sizes="(min-width: 640px) 45vw, 100vw"
                     className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
                   />

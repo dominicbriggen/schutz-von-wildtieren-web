@@ -60,6 +60,7 @@ export function HeroSlider({ images }: { images: HeroImage[] }) {
           priority={i === 0}
           loading={i === 0 ? undefined : "eager"}
           fetchPriority={i === 0 ? "high" : undefined}
+          quality={90}
           sizes="100vw"
           style={{ objectPosition: image.position ?? "center" }}
           className={`object-cover transition-opacity duration-[1200ms] ease-in-out ${

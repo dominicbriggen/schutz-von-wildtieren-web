@@ -50,6 +50,7 @@ export default async function AktuellesDetailPage({
             alt={item.title}
             fill
             priority
+            quality={90}
             sizes="100vw"
             className="object-cover"
           />

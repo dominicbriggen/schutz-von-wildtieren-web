@@ -34,6 +34,7 @@ export default async function AktuellesPage() {
                       src={item.cover_image_url}
                       alt={item.title}
                       fill
+                      quality={82}
                       sizes="(min-width: 640px) 240px, 100vw"
                       className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.05]"
                     />

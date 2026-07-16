@@ -124,14 +124,14 @@ insert into content_blocks (key, data) values (
 
 insert into projects (slug, title, summary, body, status, cover_image_url, images, order_index, published_at) values
 (
-  'wildtier-schutzinseln',
-  'Wildtier-Schutzinseln',
+  'biodiversitaetsinseln',
+  'Biodiversitätsinseln',
   'Kleine, naturnahe Rückzugsorte für Igel, Zauneidechsen, Amphibien und weitere Arten – dort, wo Wildtieren kaum noch Platz bleibt.',
-  $$Unsere Wildtier-Schutzinseln sind kleine, naturnahe Oasen, die dort entstehen, wo Wildtiere kaum noch Platz finden. Durch die zunehmende Bebauung, versiegelte Flächen und gepflegte Gärten verschwinden viele natürliche Lebensräume. In enger Zusammenarbeit mit Gemeinden, Schulen und Fachstellen für Natur- und Umweltschutz errichten wir deshalb gezielt kompakte Rückzugsorte für Igel, Zauneidechsen, Amphibien und viele andere Arten.
+  $$Unsere Biodiversitätsinseln sind kleine, naturnahe Oasen, die dort entstehen, wo Wildtiere kaum noch Platz finden. Durch die zunehmende Bebauung, versiegelte Flächen und gepflegte Gärten verschwinden viele natürliche Lebensräume. In enger Zusammenarbeit mit Gemeinden, Schulen und Fachstellen für Natur- und Umweltschutz errichten wir deshalb gezielt kompakte Rückzugsorte für Igel, Zauneidechsen, Amphibien und viele andere Arten.
 
 Diese Inseln bestehen aus natürlichen Materialien wie Sand, Holz, Wurzeln und Ästen und werden individuell an die Umgebung angepasst. Sie bieten Verstecke, Sonnenplätze und Winterquartiere – sichere Zufluchtsorte, die in unserer Kulturlandschaft immer seltener werden. Gleichzeitig dienen sie als wichtige Verbindungsstellen zwischen bestehenden Lebensräumen und helfen, isolierte Tierpopulationen wieder zu vernetzen.
 
-Ob auf Schularealen, Kirchhöfen oder öffentlichen Grünflächen: Die Wildtier-Schutzinseln fördern nicht nur die Artenvielfalt, sondern auch das Verständnis für Natur und Tierschutz. Kinder und Erwachsene können beobachten, lernen und erleben, wie selbst kleine Flächen Grosses bewirken.
+Ob auf Schularealen, Kirchhöfen oder öffentlichen Grünflächen: Die Biodiversitätsinseln fördern nicht nur die Artenvielfalt, sondern auch das Verständnis für Natur und Tierschutz. Kinder und Erwachsene können beobachten, lernen und erleben, wie selbst kleine Flächen Grosses bewirken.
 
 Gemeinsam mit Gemeinden, Schulen und engagierten Menschen schaffen wir so ein schweizweites Netzwerk aus sicheren Lebensräumen – kleine Inseln mit grosser Wirkung.$$,
   'published',
@@ -256,12 +256,12 @@ insert into success_entries (project_slug, title, period_label, value_label, ord
 -- ---------------------------------------------------------------------
 
 insert into gallery_images (url, alt_text, category, year, order_index, status) values
-('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-01.jpg', 'Wildtier-Schutzinsel', 'Wildtier-Schutzinseln', '2026', 1, 'published'),
-('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-02.jpg', 'Wildtier-Schutzinsel', 'Wildtier-Schutzinseln', '2026', 2, 'published'),
-('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-03.jpg', 'Wildtier-Schutzinsel', 'Wildtier-Schutzinseln', '2026', 3, 'published'),
-('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-04.jpg', 'Wildtier-Schutzinsel', 'Wildtier-Schutzinseln', '2026', 4, 'published'),
-('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-05.jpg', 'Wildtier-Schutzinsel', 'Wildtier-Schutzinseln', '2026', 5, 'published'),
-('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-06.jpg', 'Wildtier-Schutzinsel', 'Wildtier-Schutzinseln', '2026', 6, 'published'),
+('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-01.jpg', 'Biodiversitätsinsel', 'Biodiversitätsinseln', '2026', 1, 'published'),
+('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-02.jpg', 'Biodiversitätsinsel', 'Biodiversitätsinseln', '2026', 2, 'published'),
+('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-03.jpg', 'Biodiversitätsinsel', 'Biodiversitätsinseln', '2026', 3, 'published'),
+('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-04.jpg', 'Biodiversitätsinsel', 'Biodiversitätsinseln', '2026', 4, 'published'),
+('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-05.jpg', 'Biodiversitätsinsel', 'Biodiversitätsinseln', '2026', 5, 'published'),
+('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-06.jpg', 'Biodiversitätsinsel', 'Biodiversitätsinseln', '2026', 6, 'published'),
 ('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biberdamm-01.jpg', 'Biberdamm', 'Biberdamm-Überwachung', '2025', 7, 'published'),
 ('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biberdamm-02-wildkamera.jpg', 'Wildkamera-Aufnahme am Biberdamm', 'Biberdamm-Überwachung', '2025', 8, 'published'),
 ('https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biberdamm-03.jpg', 'Biberdamm', 'Biberdamm-Überwachung', '2025', 9, 'published'),

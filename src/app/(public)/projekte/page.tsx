@@ -6,7 +6,7 @@ import { getProjects } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Projekte",
   description:
-    "Unsere Projekte für Schweizer Wildtiere: WILDSEEK, Wildsalzquellen, wildtierschonende Weidezäune, Wildtier-Schutzinseln und mehr.",
+    "Unsere Projekte für Schweizer Wildtiere: WILDSEEK, Wildsalzquellen, wildtierschonende Weidezäune, Biodiversitätsinseln und mehr.",
 };
 
 export default async function ProjektePage() {
