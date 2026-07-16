@@ -61,12 +61,23 @@ export type MediaItem = {
   created_at: string;
 };
 
+export type HeroImage = {
+  url: string;
+  alt: string;
+  credit?: string;
+};
+
 export type HomeHeroData = {
   headline: string;
+  subline: string;
   quote: string;
   intro_title: string;
   intro_text: string;
-  hero_image_url: string | null;
+  hero_images: HeroImage[];
+  primary_cta_label: string;
+  primary_cta_href: string;
+  secondary_cta_label: string;
+  secondary_cta_href: string;
 };
 
 export type TeamMember = {

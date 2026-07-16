@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { SaveButton } from "@/components/admin/save-button";
-import { ImageUploadField } from "@/components/admin/image-upload-field";
+import { HeroImagesField } from "@/components/admin/hero-images-field";
 import { updateHomeHero, type FormState } from "@/lib/actions/content-blocks";
 import type { HomeHeroData } from "@/lib/types";
 
@@ -25,6 +25,57 @@ export function HomeHeroForm({ data }: { data: HomeHeroData }) {
       <div>
         <Label htmlFor="headline">Hauptaussage</Label>
         <Input id="headline" name="headline" defaultValue={data.headline} className="mt-1.5" required />
+      </div>
+
+      <div>
+        <Label htmlFor="subline">Unterzeile</Label>
+        <Textarea id="subline" name="subline" defaultValue={data.subline} rows={2} className="mt-1.5" />
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="primary_cta_label">Haupt-Button: Beschriftung</Label>
+          <Input
+            id="primary_cta_label"
+            name="primary_cta_label"
+            defaultValue={data.primary_cta_label}
+            className="mt-1.5"
+            required
+          />
+        </div>
+        <div>
+          <Label htmlFor="primary_cta_href">Haupt-Button: Ziel-Seite</Label>
+          <Input
+            id="primary_cta_href"
+            name="primary_cta_href"
+            defaultValue={data.primary_cta_href}
+            className="mt-1.5"
+            required
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="secondary_cta_label">Zweiter Button: Beschriftung</Label>
+          <Input
+            id="secondary_cta_label"
+            name="secondary_cta_label"
+            defaultValue={data.secondary_cta_label}
+            className="mt-1.5"
+            required
+          />
+        </div>
+        <div>
+          <Label htmlFor="secondary_cta_href">Zweiter Button: Ziel-Seite</Label>
+          <Input
+            id="secondary_cta_href"
+            name="secondary_cta_href"
+            defaultValue={data.secondary_cta_href}
+            className="mt-1.5"
+            required
+          />
+        </div>
       </div>
 
       <div>
@@ -52,7 +103,7 @@ export function HomeHeroForm({ data }: { data: HomeHeroData }) {
         <Textarea id="quote" name="quote" defaultValue={data.quote} rows={2} className="mt-1.5" />
       </div>
 
-      <ImageUploadField name="hero_image_url" label="Startbild" defaultValue={data.hero_image_url} />
+      <HeroImagesField name="hero_images" label="Startbilder (Diashow)" defaultValue={data.hero_images} />
 
       <SaveButton />
     </form>

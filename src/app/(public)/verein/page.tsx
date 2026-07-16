@@ -31,9 +31,9 @@ export default async function VereinPage() {
         lead="Der Verein Schutz von Wildtieren wurde 2023 gegründet und setzt sich für den Schutz von Wildtieren und ihrer Lebensräume in der Schweiz ein."
       />
 
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-[200px_1fr] sm:items-start">
-          <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-full bg-muted sm:w-full">
+          <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-full bg-muted shadow-sm ring-4 ring-background sm:w-full">
             {verein.founder_photo_url ? (
               <Image
                 src={verein.founder_photo_url}
@@ -62,7 +62,7 @@ export default async function VereinPage() {
         </div>
       </section>
 
-      <section className="bg-muted/60 py-16">
+      <section className="bg-muted/50 py-20 sm:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-2xl font-semibold text-primary">
             Die helfende Kraft
@@ -70,7 +70,7 @@ export default async function VereinPage() {
           <div className="mt-8 grid gap-10 sm:grid-cols-2">
             {verein.helpers.map((helper) => (
               <div key={helper.name} className="flex flex-col items-start gap-4">
-                <div className="relative size-24 overflow-hidden rounded-full bg-muted">
+                <div className="relative size-24 overflow-hidden rounded-full bg-muted shadow-sm ring-4 ring-background">
                   {helper.photo_url ? (
                     <Image
                       src={helper.photo_url}
@@ -97,7 +97,7 @@ export default async function VereinPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
         <h2 className="font-heading text-2xl font-semibold text-primary">
           {verein.goals_title}
         </h2>

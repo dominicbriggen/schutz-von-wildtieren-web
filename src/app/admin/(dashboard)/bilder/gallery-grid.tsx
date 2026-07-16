@@ -18,7 +18,7 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {images.map((image) => (
-        <div key={image.id} className="overflow-hidden rounded-lg border border-border bg-card">
+        <div key={image.id} className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
           <div className="relative aspect-square w-full bg-muted">
             <Image src={image.url} alt={image.alt_text ?? ""} fill className="object-cover" />
           </div>

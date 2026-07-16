@@ -10,8 +10,8 @@ export default function AgbPage() {
   return (
     <>
       <PageHero title="Allgemeine Geschäftsbedingungen" />
-      <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-8 rounded-lg border border-accent/40 bg-accent/10 p-5 text-sm text-foreground">
+      <article className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+        <div className="mb-10 rounded-2xl border border-accent/30 bg-accent/[0.07] p-5 text-sm text-foreground">
           <p className="font-medium">Hinweis zu diesem Dokument</p>
           <p className="mt-2 text-muted-foreground">
             Dieser Text wurde unverändert inhaltlich von der bisherigen Website

@@ -26,7 +26,7 @@ export function EntriesList({ entries }: { entries: SuccessEntry[] }) {
       {Array.from(byGroup.entries()).map(([title, groupEntries]) => (
         <div key={title}>
           <h2 className="font-heading text-lg font-semibold text-foreground">{title}</h2>
-          <ul className="mt-3 divide-y divide-border rounded-lg border border-border bg-card">
+          <ul className="mt-3 divide-y divide-border rounded-2xl border border-border bg-card shadow-sm">
             {groupEntries.map((entry) => (
               <li key={entry.id} className="flex flex-wrap items-center gap-4 p-4">
                 <div className="min-w-0 flex-1">

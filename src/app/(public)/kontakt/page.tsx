@@ -15,7 +15,7 @@ export default async function KontaktPage() {
   return (
     <>
       <PageHero title="Kontakt" lead="Wir freuen uns auf Ihre Nachricht." />
-      <section className="mx-auto grid max-w-5xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.2fr] lg:px-8">
+      <section className="mx-auto grid max-w-5xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1fr_1.2fr] lg:px-8">
         {kontakt && (
           <div className="space-y-5">
             <div className="flex items-start gap-3">
@@ -34,7 +34,7 @@ export default async function KontaktPage() {
                 <Phone className="size-5 shrink-0 text-accent" aria-hidden="true" />
                 <a
                   href={`tel:${kontakt.telefon.replace(/\s+/g, "")}`}
-                  className="text-foreground hover:text-primary"
+                  className="text-foreground transition-standard hover:text-primary"
                 >
                   {kontakt.telefon}
                 </a>
@@ -44,7 +44,7 @@ export default async function KontaktPage() {
               <Mail className="size-5 shrink-0 text-accent" aria-hidden="true" />
               <a
                 href={`mailto:${kontakt.email}`}
-                className="text-foreground hover:text-primary"
+                className="text-foreground transition-standard hover:text-primary"
               >
                 {kontakt.email}
               </a>
@@ -56,7 +56,7 @@ export default async function KontaktPage() {
                   href={kontakt.instagram_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:text-primary"
+                  className="text-foreground transition-standard hover:text-primary"
                 >
                   Instagram
                 </a>

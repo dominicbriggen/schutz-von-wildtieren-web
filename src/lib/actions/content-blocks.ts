@@ -18,24 +18,47 @@ async function saveBlock(key: string, data: unknown) {
   return error;
 }
 
+const heroImageSchema = z.object({
+  url: z.string().min(1),
+  alt: z.string(),
+  credit: z.string().optional(),
+});
+
 const homeHeroSchema = z.object({
   headline: z.string().min(1, "Bitte eine Hauptaussage angeben."),
+  subline: z.string(),
   quote: z.string(),
   intro_title: z.string().min(1),
   intro_text: z.string().min(1),
-  hero_image_url: z.string().nullable(),
+  hero_images: z.array(heroImageSchema),
+  primary_cta_label: z.string().min(1),
+  primary_cta_href: z.string().min(1),
+  secondary_cta_label: z.string().min(1),
+  secondary_cta_href: z.string().min(1),
 });
 
 export async function updateHomeHero(
   _prev: FormState,
   formData: FormData
 ): Promise<FormState> {
+  let hero_images: unknown = [];
+  try {
+    hero_images = JSON.parse((formData.get("hero_images") as string) || "[]");
+  } catch {
+    return { status: "error", message: "Ungültige Bilddaten." };
+  }
+
   const parsed = homeHeroSchema.safeParse({
     headline: formData.get("headline"),
+    subline: formData.get("subline"),
     quote: formData.get("quote"),
     intro_title: formData.get("intro_title"),
     intro_text: formData.get("intro_text"),
-    hero_image_url: (formData.get("hero_image_url") as string) || null,
+    hero_images,
+    primary_cta_label: formData.get("primary_cta_label"),
+    primary_cta_href: formData.get("primary_cta_href"),
+    secondary_cta_label: formData.get("secondary_cta_label"),
+    secondary_cta_href: formData.get("secondary_cta_href"),
   });
   if (!parsed.success) {
     return { status: "error", message: parsed.error.issues[0]?.message };

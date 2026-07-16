@@ -13,8 +13,8 @@ export default async function ImpressumPage() {
   return (
     <>
       <PageHero title="Impressum" />
-      <article className="mx-auto max-w-3xl space-y-8 px-4 py-16 text-sm leading-relaxed text-muted-foreground sm:px-6 lg:px-8">
-        <div className="rounded-lg border border-accent/40 bg-accent/10 p-5 text-foreground">
+      <article className="mx-auto max-w-3xl space-y-8 px-4 py-20 text-sm leading-relaxed text-muted-foreground sm:px-6 sm:py-24 lg:px-8">
+        <div className="rounded-2xl border border-accent/30 bg-accent/[0.07] p-5 text-foreground">
           <p className="font-medium">Hinweis zu diesem Dokument</p>
           <p className="mt-2 text-muted-foreground">
             Auf der bisherigen Website des Vereins war kein Impressum

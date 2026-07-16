@@ -63,7 +63,7 @@ export default function SetPasswordPage() {
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-muted/60 px-4 py-16">
-      <div className="w-full max-w-sm rounded-lg border border-border bg-card p-8 shadow-sm">
+      <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-8 shadow-md">
         <div className="flex flex-col items-center gap-2 text-center">
           <PawPrint className="size-8 text-primary" aria-hidden="true" />
           <h1 className="font-heading text-xl font-semibold text-foreground">

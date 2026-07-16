@@ -28,10 +28,10 @@ export function NewsTable({ items }: { items: NewsItem[] }) {
   }
 
   return (
-    <ul className="divide-y divide-border rounded-lg border border-border bg-card">
+    <ul className="divide-y divide-border rounded-2xl border border-border bg-card shadow-sm">
       {items.map((item) => (
         <li key={item.id} className="flex flex-wrap items-center gap-4 p-4">
-          <div className="relative size-14 shrink-0 overflow-hidden rounded-md bg-muted">
+          <div className="relative size-14 shrink-0 overflow-hidden rounded-xl bg-muted">
             {item.cover_image_url && (
               <Image src={item.cover_image_url} alt="" fill className="object-cover" />
             )}

@@ -75,7 +75,7 @@
   --chart-3: #6f8f7c;
   --chart-4: #b3a37f;
   --chart-5: #5b6a5f;
-  --radius: 0.5rem;
+  --radius: 0.75rem;
   --sidebar: #1e3a2f;
   --sidebar-foreground: #faf8f3;
   --sidebar-primary: #faf8f3;
@@ -130,18 +130,47 @@
   html {
     @apply font-sans scroll-smooth;
   }
+  body {
+    text-wrap: pretty;
+  }
   h1,
   h2,
   h3,
   h4 {
-    @apply font-heading;
+    @apply font-heading tracking-tight;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
   }
   :focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 2px;
+    border-radius: 2px;
   }
   ::selection {
     background: var(--secondary);
     color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .transition-standard {
+    transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

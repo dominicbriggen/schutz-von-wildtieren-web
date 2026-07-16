@@ -52,16 +52,16 @@ export default async function ErfolgePage() {
         </section>
       )}
 
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         {byProject.size === 0 ? (
           <p className="text-muted-foreground">
             [Information muss ergänzt oder bestätigt werden]
           </p>
         ) : (
-          <div className="space-y-12">
+          <div className="space-y-14">
             {Array.from(byProject.entries()).map(([slug, projectEntries]) => (
               <div key={slug}>
-                <h2 className="font-heading text-xl font-semibold text-primary">
+                <h2 className="text-xl font-semibold text-primary">
                   {projectTitle(slug)}
                 </h2>
                 <ol className="mt-4 border-l-2 border-border pl-6">

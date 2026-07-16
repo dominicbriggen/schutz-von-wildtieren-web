@@ -19,7 +19,7 @@ export function ContactForm() {
     return (
       <div
         role="status"
-        className="rounded-lg border border-primary/30 bg-primary/5 p-6 text-foreground"
+        className="rounded-2xl border border-primary/25 bg-primary/5 p-6 text-foreground"
       >
         {state.message}
       </div>
@@ -60,7 +60,7 @@ export function ContactForm() {
         </p>
       )}
 
-      <Button type="submit" disabled={isPending} className="w-full sm:w-auto">
+      <Button type="submit" disabled={isPending} className="w-full shadow-sm sm:w-auto">
         {isPending ? "Wird gesendet…" : "Nachricht senden"}
       </Button>
     </form>

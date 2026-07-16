@@ -1,5 +1,21 @@
 # Technische Dokumentation
 
+## Bildnachweise (externe Bilder)
+
+Alle Projekt-, Team- und Galeriebilder stammen von der bisherigen Vereinswebsite.
+Einzig die drei Hintergrundbilder der Startseiten-Diashow sind lizenzierte
+externe Aufnahmen von Schweizer Wildtieren, da für diesen Zweck keine
+eigenen hochauflösenden Aufnahmen vorlagen:
+
+| Bild | Fotograf/in | Quelle | Lizenz |
+|---|---|---|---|
+| Reh-Kitz | Dave Dodson | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Roe_Deer_Fawn_(38558766).jpeg) | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/deed.de) |
+| Igel | Rhamely | [Unsplash](https://unsplash.com/photos/a-close-up-of-a-hedgehog-in-the-grass-4ubVpOKj8ko) | [Unsplash-Lizenz](https://unsplash.com/license) (frei nutzbar, keine Namensnennung erforderlich) |
+| Wildbiene | Rapha Wilde | [Unsplash](https://unsplash.com/photos/a-bee-on-a-flower-aqoX83qg6E8) | [Unsplash-Lizenz](https://unsplash.com/license) (frei nutzbar, keine Namensnennung erforderlich) |
+
+Die Namensnennung wird trotzdem als gute Praxis eingehalten. Änderbar im
+Verwaltungsbereich unter **Startseite → Startbilder**.
+
 ## Architektur
 
 ```

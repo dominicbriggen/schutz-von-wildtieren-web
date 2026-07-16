@@ -18,7 +18,7 @@ export default function AdminHomePage() {
 
   return (
     <div>
-      <h1 className="font-heading text-2xl font-semibold text-foreground">
+      <h1 className="text-2xl font-semibold text-foreground">
         Willkommen im Verwaltungsbereich
       </h1>
       <p className="mt-2 text-muted-foreground">
@@ -30,9 +30,9 @@ export default function AdminHomePage() {
           <Link
             key={card.href}
             href={card.href}
-            className="group flex flex-col gap-2 rounded-lg border border-border bg-card p-5 transition-shadow hover:shadow-md"
+            className="group flex flex-col gap-2 rounded-2xl border border-border bg-card p-6 shadow-sm transition-standard hover:-translate-y-0.5 hover:shadow-md"
           >
-            <span className="font-heading text-lg font-semibold text-foreground">
+            <span className="text-lg font-semibold text-foreground">
               {card.label}
             </span>
             <span className="text-sm text-muted-foreground">

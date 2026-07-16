@@ -36,9 +36,9 @@ export function AdminSidebar() {
               <Link
                 href={link.href}
                 className={cn(
-                  "block rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                  "block rounded-xl px-3.5 py-2.5 text-sm font-medium transition-standard",
                   isActive
-                    ? "bg-primary-foreground text-primary"
+                    ? "bg-primary-foreground text-primary shadow-sm"
                     : "text-primary-foreground/85 hover:bg-primary-foreground/10"
                 )}
               >
@@ -53,7 +53,7 @@ export function AdminSidebar() {
         <Link
           href="/"
           target="_blank"
-          className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium text-primary-foreground/85 hover:bg-primary-foreground/10"
+          className="flex items-center gap-2 rounded-xl px-3.5 py-2.5 text-sm font-medium text-primary-foreground/85 transition-standard hover:bg-primary-foreground/10"
         >
           <ExternalLink className="size-4" aria-hidden="true" />
           Website ansehen
@@ -61,7 +61,7 @@ export function AdminSidebar() {
         <form action={logout}>
           <button
             type="submit"
-            className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium text-primary-foreground/85 hover:bg-primary-foreground/10"
+            className="flex w-full items-center gap-2 rounded-xl px-3.5 py-2.5 text-sm font-medium text-primary-foreground/85 transition-standard hover:bg-primary-foreground/10"
           >
             <LogOut className="size-4" aria-hidden="true" />
             Abmelden

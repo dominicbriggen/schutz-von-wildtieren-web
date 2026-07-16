@@ -13,14 +13,37 @@ set search_path = public;
 -- content_blocks
 -- ---------------------------------------------------------------------
 
+-- Hero images are licensed stock/CC photography (Rehkitz, Igel, Wildbiene),
+-- not original association photos — see docs/technik.md for full credits.
 insert into content_blocks (key, data) values (
   'home_hero',
   $${
     "headline": "Gemeinsam für die Natur und unsere Wildtiere.",
+    "subline": "Wir schützen Wildtiere und ihre Lebensräume in der Schweiz – mit konkreten, wirkungsvollen Projekten.",
     "quote": "Wenn man seine Zeit mit Tieren verbringt, befindet man sich immer in guter Gesellschaft.",
     "intro_title": "Unser Verein",
     "intro_text": "Der Verein «Schutz von Wildtieren» ist eine gemeinnützige Organisation, die sich für die Umwelt und den Tierschutz einsetzt.\n\nWir suchen innovative Lösungen und setzen diese in der Praxis um. Zudem verfolgen wir Pilotprojekte, die der Umwelt und dem Tierschutz dienen.",
-    "hero_image_url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/biodiv-01.jpg"
+    "primary_cta_label": "Projekte entdecken",
+    "primary_cta_href": "/projekte",
+    "secondary_cta_label": "Jetzt unterstützen",
+    "secondary_cta_href": "/unterstuetzen",
+    "hero_images": [
+      {
+        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-rehkitz.jpg",
+        "alt": "Reh-Kitz steht im hohen Gras am Waldrand",
+        "credit": "Foto: Dave Dodson / Wikimedia Commons, CC BY 3.0"
+      },
+      {
+        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-igel.jpg",
+        "alt": "Igel zusammengerollt im Gras, Ansicht von oben",
+        "credit": "Foto: Rhamely / Unsplash"
+      },
+      {
+        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-wildbiene.jpg",
+        "alt": "Wildbiene im Anflug auf eine Mohnblüte",
+        "credit": "Foto: Rapha Wilde / Unsplash"
+      }
+    ]
   }$$::jsonb
 ) on conflict (key) do update set data = excluded.data;
 

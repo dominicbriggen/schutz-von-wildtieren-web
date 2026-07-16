@@ -4,6 +4,7 @@ import { ArrowRight, HandHeart, Mail, MapPin, Phone } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ProjectCard } from "@/components/site/project-card";
+import { HeroSlider } from "@/components/site/hero-slider";
 import {
   getHomeHero,
   getKontakt,
@@ -36,71 +37,71 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-primary text-primary-foreground">
-        {hero?.hero_image_url && (
-          <Image
-            src={hero.hero_image_url}
-            alt=""
-            fill
-            priority
-            className="object-cover opacity-45"
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/20" />
-        <div className="relative mx-auto w-full max-w-6xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-          <h1 className="max-w-2xl font-heading text-4xl font-semibold leading-tight sm:text-5xl">
+      <section className="relative flex min-h-[88vh] items-end overflow-hidden bg-primary text-primary-foreground sm:min-h-[80vh]">
+        {hero && <HeroSlider images={hero.hero_images} />}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-transparent" />
+        <div className="relative mx-auto w-full max-w-6xl px-4 pb-20 pt-32 sm:px-6 sm:pb-24 lg:px-8">
+          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.08] sm:text-6xl">
             {hero?.headline ?? "Gemeinsam für die Natur und unsere Wildtiere."}
           </h1>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/unterstuetzen" className={cn(buttonVariants({ size: "lg" }))}>
-              Spenden
+          {hero?.subline && (
+            <p className="mt-5 max-w-xl text-lg text-primary-foreground/85 sm:text-xl">
+              {hero.subline}
+            </p>
+          )}
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link
+              href={hero?.primary_cta_href ?? "/projekte"}
+              className={cn(buttonVariants({ size: "lg" }), "shadow-lg shadow-black/10")}
+            >
+              {hero?.primary_cta_label ?? "Projekte entdecken"}
             </Link>
             <Link
-              href="/projekte"
+              href={hero?.secondary_cta_href ?? "/unterstuetzen"}
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
-                "border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                "border-primary-foreground/50 bg-primary-foreground/5 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/15 hover:text-primary-foreground"
               )}
             >
-              Unsere Projekte
+              {hero?.secondary_cta_label ?? "Jetzt unterstützen"}
             </Link>
           </div>
         </div>
       </section>
 
       {/* Intro */}
-      <section className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 lg:px-8">
-        <h2 className="font-heading text-2xl font-semibold text-primary sm:text-3xl">
+      <section className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
+        <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
           {hero?.intro_title ?? "Unser Verein"}
         </h2>
-        <div className="mt-4 space-y-4 text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <div className="mt-5 space-y-4 text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
           {(hero?.intro_text ?? "").split("\n\n").map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
         {hero?.quote && (
-          <p className="mt-8 font-heading text-lg italic text-primary/80">
+          <p className="mt-9 text-lg font-medium italic text-primary/80">
             «{hero.quote}»
           </p>
         )}
       </section>
 
       {/* Projekte */}
-      <section className="bg-muted/60 py-16">
+      <section className="bg-muted/50 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="font-heading text-2xl font-semibold text-primary sm:text-3xl">
+            <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
               Unsere Projekte
             </h2>
             <Link
               href="/projekte"
-              className="flex items-center gap-1 text-sm font-medium text-primary hover:underline underline-offset-4"
+              className="flex items-center gap-1 text-sm font-medium text-primary transition-standard hover:gap-1.5"
             >
               Alle Projekte ansehen
               <ArrowRight className="size-4" />
             </Link>
           </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
@@ -110,13 +111,13 @@ export default async function HomePage() {
 
       {/* Aktuelles */}
       {latestNews && (
-        <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-2xl font-semibold text-primary sm:text-3xl">
+        <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+          <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
             Aktuelles
           </h2>
-          <div className="mt-8 grid gap-8 rounded-lg border border-border bg-card p-6 sm:grid-cols-[1fr_1.2fr] sm:p-8">
+          <div className="mt-10 grid gap-8 rounded-2xl border border-border bg-card p-6 shadow-sm sm:grid-cols-[1fr_1.2fr] sm:p-8">
             {latestNews.cover_image_url && (
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md bg-muted sm:order-2">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted sm:order-2">
                 <Image
                   src={latestNews.cover_image_url}
                   alt={latestNews.title}
@@ -132,7 +133,7 @@ export default async function HomePage() {
                   {latestNews.date_label}
                 </span>
               )}
-              <h3 className="font-heading text-xl font-semibold">
+              <h3 className="text-xl font-semibold">
                 {latestNews.title}
               </h3>
               {latestNews.summary && (
@@ -140,7 +141,7 @@ export default async function HomePage() {
               )}
               <Link
                 href={`/aktuelles/${latestNews.slug}`}
-                className="mt-2 flex items-center gap-1 text-sm font-medium text-primary hover:underline underline-offset-4"
+                className="mt-2 flex items-center gap-1 text-sm font-medium text-primary transition-standard hover:gap-1.5"
               >
                 Weiterlesen
                 <ArrowRight className="size-4" />
@@ -152,22 +153,22 @@ export default async function HomePage() {
 
       {/* Erfolge */}
       {highlights.length > 0 && (
-        <section className="bg-primary py-16 text-primary-foreground">
+        <section className="bg-primary py-20 text-primary-foreground sm:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl font-semibold sm:text-3xl">
+            <h2 className="text-2xl font-semibold sm:text-3xl">
               Konkrete Erfolge
             </h2>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
               {highlights.map((entry) => (
                 <div
                   key={entry.id}
-                  className="rounded-lg border border-primary-foreground/15 bg-primary-foreground/5 p-6"
+                  className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.06] p-7"
                 >
                   <p className="text-sm text-primary-foreground/70">
                     {entry.title}
                     {entry.period_label ? ` · ${entry.period_label}` : ""}
                   </p>
-                  <p className="mt-2 font-heading text-2xl font-semibold">
+                  <p className="mt-2 text-2xl font-semibold">
                     {entry.value_label}
                   </p>
                 </div>
@@ -175,7 +176,7 @@ export default async function HomePage() {
             </div>
             <Link
               href="/erfolge"
-              className="mt-6 inline-flex items-center gap-1 text-sm font-medium hover:underline underline-offset-4"
+              className="mt-8 inline-flex items-center gap-1 text-sm font-medium transition-standard hover:gap-1.5"
             >
               Alle Erfolge ansehen
               <ArrowRight className="size-4" />
@@ -185,11 +186,13 @@ export default async function HomePage() {
       )}
 
       {/* So können Sie helfen */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 rounded-lg border border-border bg-card p-8 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:p-10">
-          <HandHeart className="size-12 text-accent" aria-hidden="true" />
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+        <div className="grid gap-8 rounded-2xl border border-border bg-card p-8 shadow-sm sm:grid-cols-[auto_1fr_auto] sm:items-center sm:p-10">
+          <div className="flex size-14 items-center justify-center rounded-full bg-accent/10">
+            <HandHeart className="size-7 text-accent" aria-hidden="true" />
+          </div>
           <div>
-            <h2 className="font-heading text-2xl font-semibold text-primary">
+            <h2 className="text-2xl font-semibold text-primary">
               So können Sie helfen
             </h2>
             <p className="mt-2 max-w-2xl text-muted-foreground">
@@ -208,12 +211,12 @@ export default async function HomePage() {
 
       {/* Kontakt */}
       {kontakt && (
-        <section className="bg-muted/60 py-16">
+        <section className="bg-muted/50 py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl font-semibold text-primary sm:text-3xl">
+            <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
               Kontakt
             </h2>
-            <div className="mt-6 grid gap-6 sm:grid-cols-3">
+            <div className="mt-8 grid gap-6 sm:grid-cols-3">
               <div className="flex items-start gap-3">
                 <MapPin className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
                 <p className="text-muted-foreground">
@@ -227,7 +230,7 @@ export default async function HomePage() {
                   <Phone className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
                   <a
                     href={`tel:${kontakt.telefon.replace(/\s+/g, "")}`}
-                    className="text-muted-foreground hover:text-primary"
+                    className="text-muted-foreground transition-standard hover:text-primary"
                   >
                     {kontakt.telefon}
                   </a>
@@ -237,7 +240,7 @@ export default async function HomePage() {
                 <Mail className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
                 <a
                   href={`mailto:${kontakt.email}`}
-                  className="text-muted-foreground hover:text-primary"
+                  className="text-muted-foreground transition-standard hover:text-primary"
                 >
                   {kontakt.email}
                 </a>

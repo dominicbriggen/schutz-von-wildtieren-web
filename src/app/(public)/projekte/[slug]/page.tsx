@@ -72,7 +72,7 @@ export default async function ProjektDetailPage({
         </div>
       )}
 
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_320px] lg:px-8">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[1fr_320px] lg:px-8">
         <article>
           {project.body && <ProseText text={project.body} />}
 
@@ -81,7 +81,7 @@ export default async function ProjektDetailPage({
               {galleryImages.map((url) => (
                 <div
                   key={url}
-                  className="relative aspect-square overflow-hidden rounded-md bg-muted"
+                  className="relative aspect-square overflow-hidden rounded-xl bg-muted"
                 >
                   <Image
                     src={url}
@@ -98,8 +98,8 @@ export default async function ProjektDetailPage({
 
         <aside className="space-y-6">
           {results.length > 0 && (
-            <div className="rounded-lg border border-border bg-card p-6">
-              <h2 className="font-heading text-lg font-semibold text-primary">
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+              <h2 className="text-lg font-semibold text-primary">
                 Ergebnisse
               </h2>
               <ul className="mt-4 space-y-3">
@@ -115,14 +115,14 @@ export default async function ProjektDetailPage({
             </div>
           )}
 
-          <div className="rounded-lg border border-border bg-card p-6">
-            <h2 className="font-heading text-lg font-semibold text-primary">
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-primary">
               Dieses Projekt unterstützen
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Mit Ihrer Spende helfen Sie mit, Projekte wie dieses weiterzuführen und auszubauen.
             </p>
-            <Link href="/unterstuetzen" className={cn(buttonVariants(), "mt-4 w-full")}>
+            <Link href="/unterstuetzen" className={cn(buttonVariants(), "mt-4 w-full shadow-sm")}>
               Jetzt spenden
             </Link>
           </div>

@@ -15,27 +15,27 @@ export default async function AktuellesPage() {
   return (
     <>
       <PageHero title="Aktuelles" lead="Neuigkeiten und Einsätze aus unserer Vereinsarbeit." />
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         {news.length === 0 ? (
           <p className="text-muted-foreground">
             [Information muss ergänzt oder bestätigt werden]
           </p>
         ) : (
-          <div className="space-y-8">
+          <div className="space-y-6">
             {news.map((item) => (
               <Link
                 key={item.id}
                 href={`/aktuelles/${item.slug}`}
-                className="group flex flex-col gap-4 rounded-lg border border-border bg-card p-5 transition-shadow hover:shadow-md sm:flex-row"
+                className="group flex flex-col gap-5 rounded-2xl border border-border bg-card p-5 shadow-sm transition-standard hover:-translate-y-0.5 hover:shadow-md sm:flex-row sm:p-6"
               >
                 {item.cover_image_url && (
-                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-md bg-muted sm:w-56">
+                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-xl bg-muted sm:w-56">
                     <Image
                       src={item.cover_image_url}
                       alt={item.title}
                       fill
                       sizes="(min-width: 640px) 224px, 100vw"
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                     />
                   </div>
                 )}
@@ -45,7 +45,7 @@ export default async function AktuellesPage() {
                       {item.date_label}
                     </span>
                   )}
-                  <h2 className="mt-1 font-heading text-xl font-semibold text-foreground group-hover:text-primary">
+                  <h2 className="mt-1 text-xl font-semibold text-foreground">
                     {item.title}
                   </h2>
                   {item.summary && (

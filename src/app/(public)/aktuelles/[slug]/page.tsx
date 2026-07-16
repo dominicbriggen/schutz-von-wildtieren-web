@@ -55,7 +55,7 @@ export default async function AktuellesDetailPage({
           />
         </div>
       )}
-      <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <article className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
         {item.body && <ProseText text={item.body} />}
       </article>
     </>

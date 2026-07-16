@@ -31,24 +31,24 @@ export async function SiteFooter() {
           <p className="font-heading text-sm font-semibold uppercase tracking-wide text-primary-foreground/70">
             Wichtige Seiten
           </p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <ul className="mt-3 space-y-2 text-sm text-primary-foreground/80">
             <li>
-              <Link href="/projekte" className="hover:underline underline-offset-4">
+              <Link href="/projekte" className="transition-standard hover:underline underline-offset-4 hover:text-primary-foreground">
                 Projekte
               </Link>
             </li>
             <li>
-              <Link href="/erfolge" className="hover:underline underline-offset-4">
+              <Link href="/erfolge" className="transition-standard hover:underline underline-offset-4 hover:text-primary-foreground">
                 Erfolge
               </Link>
             </li>
             <li>
-              <Link href="/unterstuetzen" className="hover:underline underline-offset-4">
+              <Link href="/unterstuetzen" className="transition-standard hover:underline underline-offset-4 hover:text-primary-foreground">
                 Spenden
               </Link>
             </li>
             <li>
-              <Link href="/kontakt" className="hover:underline underline-offset-4">
+              <Link href="/kontakt" className="transition-standard hover:underline underline-offset-4 hover:text-primary-foreground">
                 Kontakt
               </Link>
             </li>
@@ -59,19 +59,19 @@ export async function SiteFooter() {
           <p className="font-heading text-sm font-semibold uppercase tracking-wide text-primary-foreground/70">
             Rechtliches
           </p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <ul className="mt-3 space-y-2 text-sm text-primary-foreground/80">
             <li>
-              <Link href="/impressum" className="hover:underline underline-offset-4">
+              <Link href="/impressum" className="transition-standard hover:underline underline-offset-4 hover:text-primary-foreground">
                 Impressum
               </Link>
             </li>
             <li>
-              <Link href="/datenschutz" className="hover:underline underline-offset-4">
+              <Link href="/datenschutz" className="transition-standard hover:underline underline-offset-4 hover:text-primary-foreground">
                 Datenschutz
               </Link>
             </li>
             <li>
-              <Link href="/agb" className="hover:underline underline-offset-4">
+              <Link href="/agb" className="transition-standard hover:underline underline-offset-4 hover:text-primary-foreground">
                 AGB
               </Link>
             </li>
