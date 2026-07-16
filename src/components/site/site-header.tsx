@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PawPrint } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "./nav-links";
 import { MobileNav } from "./mobile-nav";
@@ -16,9 +16,9 @@ export function SiteHeader() {
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-semibold tracking-tight text-primary"
+          className="flex items-center gap-2.5 text-lg font-semibold tracking-tight text-primary"
         >
-          <PawPrint className="size-6" aria-hidden="true" />
+          <Logo className="h-9 sm:h-11" />
           <span>Schutz von Wildtieren</span>
         </Link>
 
@@ -53,7 +53,10 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             href="/unterstuetzen"
-            className={cn(buttonVariants(), "hidden shadow-sm sm:inline-flex")}
+            className={cn(
+              buttonVariants(),
+              "hidden bg-[#4F7D5C] text-white shadow-sm hover:bg-[#3F6549] sm:inline-flex"
+            )}
           >
             Spenden
           </Link>

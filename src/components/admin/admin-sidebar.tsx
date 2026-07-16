@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ExternalLink, LogOut, PawPrint } from "lucide-react";
+import { ExternalLink, LogOut } from "lucide-react";
+import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
 import { logout } from "@/lib/actions/auth";
 import { ADMIN_NAV_LINKS } from "./admin-nav-links";
@@ -15,10 +16,10 @@ export function AdminSidebar() {
       aria-label="Verwaltungsnavigation"
       className="flex h-full flex-col bg-primary text-primary-foreground"
     >
-      <div className="flex items-center gap-2 border-b border-primary-foreground/15 px-5 py-5">
-        <PawPrint className="size-6" aria-hidden="true" />
+      <div className="flex items-center gap-2.5 border-b border-primary-foreground/15 px-5 py-5">
+        <Logo className="h-8" />
         <div>
-          <p className="font-heading text-sm font-semibold leading-tight">
+          <p className="text-sm font-semibold leading-tight">
             Schutz von Wildtieren
           </p>
           <p className="text-xs text-primary-foreground/60">Verwaltungsbereich</p>

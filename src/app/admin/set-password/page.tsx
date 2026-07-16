@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { PawPrint } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Logo } from "@/components/logo";
 import { createClient } from "@/lib/supabase/client";
 
 export default function SetPasswordPage() {
@@ -65,8 +65,8 @@ export default function SetPasswordPage() {
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-muted/60 px-4 py-16">
       <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-8 shadow-md">
         <div className="flex flex-col items-center gap-2 text-center">
-          <PawPrint className="size-8 text-primary" aria-hidden="true" />
-          <h1 className="font-heading text-xl font-semibold text-foreground">
+          <Logo className="h-14" />
+          <h1 className="mt-1 text-xl font-semibold text-foreground">
             Passwort festlegen
           </h1>
           <p className="text-sm text-muted-foreground">

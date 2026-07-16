@@ -2,10 +2,10 @@
 
 import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
-import { PawPrint } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Logo } from "@/components/logo";
 import { login, type LoginState } from "@/lib/actions/auth";
 
 const initialState: LoginState = { status: "idle" };
@@ -18,8 +18,8 @@ export function LoginForm() {
   return (
     <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-8 shadow-md">
       <div className="flex flex-col items-center gap-2 text-center">
-        <PawPrint className="size-8 text-primary" aria-hidden="true" />
-        <h1 className="font-heading text-xl font-semibold text-foreground">
+        <Logo className="h-14" />
+        <h1 className="mt-1 text-xl font-semibold text-foreground">
           Verwaltungsbereich
         </h1>
         <p className="text-sm text-muted-foreground">Schutz von Wildtieren</p>

@@ -50,7 +50,7 @@ export function MobileNav() {
             render={
               <Link
                 href="/unterstuetzen"
-                className="mt-3 rounded-xl bg-primary px-3.5 py-3 text-center text-base font-semibold text-primary-foreground shadow-sm transition-standard hover:bg-primary/90"
+                className="mt-3 rounded-xl bg-[#4F7D5C] px-3.5 py-3 text-center text-base font-semibold text-white shadow-sm transition-standard hover:bg-[#3F6549]"
               />
             }
           >

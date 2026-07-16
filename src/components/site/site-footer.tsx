@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/logo";
 import { getFooter, getKontakt } from "@/lib/content";
 
 export async function SiteFooter() {
@@ -9,7 +10,10 @@ export async function SiteFooter() {
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
-          <p className="font-heading text-lg font-semibold">{vereinsname}</p>
+          <div className="flex items-center gap-2.5">
+            <Logo className="h-9" />
+            <p className="text-lg font-semibold">{vereinsname}</p>
+          </div>
           {kontakt && (
             <address className="mt-3 space-y-1 text-sm not-italic text-primary-foreground/80">
               <p>{kontakt.strasse}</p>

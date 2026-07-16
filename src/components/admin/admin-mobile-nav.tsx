@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, PawPrint } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Logo } from "@/components/logo";
 import { AdminSidebar } from "./admin-sidebar";
 
 export function AdminMobileNav() {
@@ -12,8 +13,8 @@ export function AdminMobileNav() {
   return (
     <div className="flex items-center justify-between border-b border-border bg-primary px-4 py-3 text-primary-foreground md:hidden">
       <div className="flex items-center gap-2">
-        <PawPrint className="size-5" aria-hidden="true" />
-        <span className="font-heading text-sm font-semibold">Verwaltungsbereich</span>
+        <Logo className="h-7" />
+        <span className="text-sm font-semibold">Verwaltungsbereich</span>
       </div>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger
