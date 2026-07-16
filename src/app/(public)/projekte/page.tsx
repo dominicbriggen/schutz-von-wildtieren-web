@@ -1,0 +1,36 @@
+import type { Metadata } from "next";
+import { PageHero } from "@/components/site/page-hero";
+import { ProjectCard } from "@/components/site/project-card";
+import { getProjects } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Projekte",
+  description:
+    "Unsere Projekte für Schweizer Wildtiere: WILDSEEK, Wildsalzquellen, wildtierschonende Weidezäune, Wildtier-Schutzinseln und mehr.",
+};
+
+export default async function ProjektePage() {
+  const projects = await getProjects();
+
+  return (
+    <>
+      <PageHero
+        title="Projekte"
+        lead="Konkrete, praxisnahe Massnahmen für den Schutz von Wildtieren und ihrer Lebensräume in der Schweiz."
+      />
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        {projects.length === 0 ? (
+          <p className="text-muted-foreground">
+            [Information muss ergänzt oder bestätigt werden]
+          </p>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        )}
+      </section>
+    </>
+  );
+}
