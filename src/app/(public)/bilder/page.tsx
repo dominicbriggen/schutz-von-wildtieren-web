@@ -6,6 +6,7 @@ import { getGalleryImages } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Bilder",
   description: "Aktuelle Projekt- und Tierbilder von Schutz von Wildtieren.",
+  alternates: { canonical: "/bilder" },
 };
 
 export default async function BilderPage() {

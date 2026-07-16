@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Verein",
   description:
     "Erfahren Sie mehr über den Verein Schutz von Wildtieren, seine Gründung, seine Ziele und die Menschen dahinter.",
+  alternates: { canonical: "/verein" },
 };
 
 export default async function VereinPage() {

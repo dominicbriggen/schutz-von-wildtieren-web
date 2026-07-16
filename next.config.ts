@@ -26,6 +26,15 @@ const nextConfig: NextConfig = {
         destination: "/projekte/biodiversitaetsinseln",
         permanent: true,
       },
+      {
+        // Kanonisierung: www dauerhaft (308) auf die Hauptdomain (apex)
+        // weiterleiten. Greift ausschliesslich, wenn der Host www.* ist –
+        // bleibt daher wirkungslos, solange www noch nicht auf Vercel zeigt.
+        source: "/:path*",
+        has: [{ type: "host", value: "www.schutz-von-wildtieren.ch" }],
+        destination: "https://schutz-von-wildtieren.ch/:path*",
+        permanent: true,
+      },
     ];
   },
 };

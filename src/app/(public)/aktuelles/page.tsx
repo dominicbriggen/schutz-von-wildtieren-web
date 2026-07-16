@@ -7,6 +7,7 @@ import { getNews } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Aktuelles",
   description: "Neuigkeiten, Einsätze und Vereinsmitteilungen von Schutz von Wildtieren.",
+  alternates: { canonical: "/aktuelles" },
 };
 
 export default async function AktuellesPage() {

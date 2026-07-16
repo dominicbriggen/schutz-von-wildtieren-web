@@ -7,6 +7,7 @@ import { getKontakt } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Kontakt",
   description: "Kontaktieren Sie den Verein Schutz von Wildtieren.",
+  alternates: { canonical: "/kontakt" },
 };
 
 export default async function KontaktPage() {

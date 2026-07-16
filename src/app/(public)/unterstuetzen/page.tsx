@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Unterstützen",
   description:
     "Unterstützen Sie den Schutz von Wildtieren mit einer Spende – gemeinnützig, steuerbefreit und transparent.",
+  alternates: { canonical: "/unterstuetzen" },
 };
 
 export default async function UnterstuetzenPage() {

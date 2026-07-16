@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Erfolge",
   description:
     "Konkrete Ergebnisse unserer Projekte für Schweizer Wildtiere, nach Projekt und Zeitraum.",
+  alternates: { canonical: "/erfolge" },
 };
 
 export default async function ErfolgePage() {

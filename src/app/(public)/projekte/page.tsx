@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Projekte",
   description:
     "Unsere Projekte für Schweizer Wildtiere: WILDSEEK, Wildsalzquellen, wildtierschonende Weidezäune, Biodiversitätsinseln und mehr.",
+  alternates: { canonical: "/projekte" },
 };
 
 export default async function ProjektePage() {

@@ -23,7 +23,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const item = await getNewsBySlug(slug);
   if (!item) return {};
-  return { title: item.title, description: item.summary ?? undefined };
+  return {
+    title: item.title,
+    description: item.summary ?? undefined,
+    alternates: { canonical: `/aktuelles/${item.slug}` },
+  };
 }
 
 export default async function AktuellesDetailPage({
