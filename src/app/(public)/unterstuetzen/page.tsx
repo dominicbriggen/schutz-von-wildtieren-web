@@ -92,7 +92,7 @@ export default async function UnterstuetzenPage() {
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted shadow-sm lg:aspect-auto">
             <Image
               src={spenden.hero_image_url}
-              alt=""
+              alt="Schweizer Naturlandschaft"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
               className="object-cover"

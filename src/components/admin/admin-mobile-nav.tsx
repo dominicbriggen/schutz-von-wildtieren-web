@@ -22,7 +22,7 @@ export function AdminMobileNav() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-primary-foreground hover:bg-primary-foreground/10"
+              className="size-11 text-primary-foreground hover:bg-primary-foreground/10"
               aria-label="Menü öffnen"
             />
           }

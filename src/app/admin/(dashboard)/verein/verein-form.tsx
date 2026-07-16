@@ -83,7 +83,7 @@ export function VereinForm({ data }: { data: VereinData }) {
         </div>
 
         {helpers.map((helper, index) => (
-          <div key={index} className="space-y-4 rounded-lg border border-border p-4">
+          <div key={index} className="space-y-4 rounded-2xl border border-border p-4">
             <div className="flex items-center justify-between">
               <p className="text-sm font-medium text-muted-foreground">Person {index + 1}</p>
               <Button

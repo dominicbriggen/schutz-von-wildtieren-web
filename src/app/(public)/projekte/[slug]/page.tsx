@@ -78,17 +78,17 @@ export default async function ProjektDetailPage({
 
           {galleryImages.length > 0 && (
             <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {galleryImages.map((url) => (
+              {galleryImages.map((url, i) => (
                 <div
                   key={url}
-                  className="relative aspect-square overflow-hidden rounded-xl bg-muted"
+                  className="group relative aspect-square overflow-hidden rounded-xl bg-muted"
                 >
                   <Image
                     src={url}
-                    alt={project.title}
+                    alt={`${project.title} – Bild ${i + 2}`}
                     fill
                     sizes="(min-width: 640px) 30vw, 45vw"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                   />
                 </div>
               ))}

@@ -31,7 +31,7 @@ export function MessagesList({ messages }: { messages: Message[] }) {
       {messages.map((msg) => (
         <li
           key={msg.id}
-          className={`rounded-lg border p-4 ${
+          className={`rounded-2xl border p-4 shadow-sm ${
             msg.is_read ? "border-border bg-card" : "border-accent/50 bg-accent/5"
           }`}
         >

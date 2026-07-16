@@ -5,6 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ProjectCard } from "@/components/site/project-card";
 import { HeroSlider } from "@/components/site/hero-slider";
+import { Reveal } from "@/components/site/reveal";
 import {
   getHomeHero,
   getKontakt,
@@ -37,22 +38,22 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[88vh] items-end overflow-hidden bg-primary text-primary-foreground sm:min-h-[80vh]">
+      <section className="relative flex min-h-[85svh] items-center overflow-hidden bg-primary text-primary-foreground sm:min-h-[82vh] sm:items-end">
         {hero && <HeroSlider images={hero.hero_images} />}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-transparent" />
-        <div className="relative mx-auto w-full max-w-6xl px-4 pb-20 pt-32 sm:px-6 sm:pb-24 lg:px-8">
-          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.08] sm:text-6xl">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-primary/5 sm:via-primary/25 sm:to-transparent" />
+        <div className="relative mx-auto w-full max-w-6xl px-5 pb-14 pt-24 text-center sm:px-6 sm:pb-24 sm:pt-32 sm:text-left lg:px-8">
+          <h1 className="mx-auto max-w-3xl text-balance text-[2.5rem] font-semibold leading-[1.1] sm:mx-0 sm:text-6xl">
             {hero?.headline ?? "Gemeinsam für die Natur und unsere Wildtiere."}
           </h1>
           {hero?.subline && (
-            <p className="mt-5 max-w-xl text-lg text-primary-foreground/85 sm:text-xl">
+            <p className="mx-auto mt-5 max-w-xl text-balance text-base text-primary-foreground/85 sm:mx-0 sm:text-xl">
               {hero.subline}
             </p>
           )}
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
             <Link
               href={hero?.primary_cta_href ?? "/projekte"}
-              className={cn(buttonVariants({ size: "lg" }), "shadow-lg shadow-black/10")}
+              className={cn(buttonVariants({ size: "lg" }), "w-full justify-center shadow-lg shadow-black/10 sm:w-auto")}
             >
               {hero?.primary_cta_label ?? "Projekte entdecken"}
             </Link>
@@ -60,7 +61,7 @@ export default async function HomePage() {
               href={hero?.secondary_cta_href ?? "/unterstuetzen"}
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
-                "border-primary-foreground/50 bg-primary-foreground/5 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/15 hover:text-primary-foreground"
+                "w-full justify-center border-primary-foreground/50 bg-primary-foreground/5 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/15 hover:text-primary-foreground sm:w-auto"
               )}
             >
               {hero?.secondary_cta_label ?? "Jetzt unterstützen"}
@@ -70,184 +71,196 @@ export default async function HomePage() {
       </section>
 
       {/* Intro */}
-      <section className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
-        <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
-          {hero?.intro_title ?? "Unser Verein"}
-        </h2>
-        <div className="mt-5 space-y-4 text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
-          {(hero?.intro_text ?? "").split("\n\n").map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
-        </div>
-        {hero?.quote && (
-          <p className="mt-9 text-lg font-medium italic text-primary/80">
-            «{hero.quote}»
-          </p>
-        )}
-      </section>
-
-      {/* Projekte */}
-      <section className="bg-muted/50 py-20 sm:py-28">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
-              Unsere Projekte
-            </h2>
-            <Link
-              href="/projekte"
-              className="flex items-center gap-1 text-sm font-medium text-primary transition-standard hover:gap-1.5"
-            >
-              Alle Projekte ansehen
-              <ArrowRight className="size-4" />
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+      <Reveal>
+        <section className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
+          <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
+            {hero?.intro_title ?? "Unser Verein"}
+          </h2>
+          <div className="mt-5 space-y-4 text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
+            {(hero?.intro_text ?? "").split("\n\n").map((p, i) => (
+              <p key={i}>{p}</p>
             ))}
           </div>
-        </div>
-      </section>
+          {hero?.quote && (
+            <p className="mt-9 text-lg font-medium italic text-primary/80">
+              «{hero.quote}»
+            </p>
+          )}
+        </section>
+      </Reveal>
 
-      {/* Aktuelles */}
-      {latestNews && (
-        <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
-            Aktuelles
-          </h2>
-          <div className="mt-10 grid gap-8 rounded-2xl border border-border bg-card p-6 shadow-sm sm:grid-cols-[1fr_1.2fr] sm:p-8">
-            {latestNews.cover_image_url && (
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted sm:order-2">
-                <Image
-                  src={latestNews.cover_image_url}
-                  alt={latestNews.title}
-                  fill
-                  sizes="(min-width: 640px) 40vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            )}
-            <div className="flex flex-col justify-center gap-3 sm:order-1">
-              {latestNews.date_label && (
-                <span className="text-sm font-medium text-accent">
-                  {latestNews.date_label}
-                </span>
-              )}
-              <h3 className="text-xl font-semibold">
-                {latestNews.title}
-              </h3>
-              {latestNews.summary && (
-                <p className="text-muted-foreground">{latestNews.summary}</p>
-              )}
+      {/* Projekte */}
+      <Reveal>
+        <section className="bg-muted/50 py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
+                Unsere Projekte
+              </h2>
               <Link
-                href={`/aktuelles/${latestNews.slug}`}
-                className="mt-2 flex items-center gap-1 text-sm font-medium text-primary transition-standard hover:gap-1.5"
+                href="/projekte"
+                className="flex items-center gap-1 text-sm font-medium text-primary transition-standard hover:gap-1.5"
               >
-                Weiterlesen
+                Alle Projekte ansehen
                 <ArrowRight className="size-4" />
               </Link>
             </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {featuredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
           </div>
         </section>
+      </Reveal>
+
+      {/* Aktuelles */}
+      {latestNews && (
+        <Reveal>
+          <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+            <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
+              Aktuelles
+            </h2>
+            <div className="mt-10 grid gap-8 rounded-2xl border border-border bg-card p-6 shadow-sm sm:grid-cols-[1fr_1.2fr] sm:p-8">
+              {latestNews.cover_image_url && (
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted sm:order-2">
+                  <Image
+                    src={latestNews.cover_image_url}
+                    alt={latestNews.title}
+                    fill
+                    sizes="(min-width: 640px) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
+              <div className="flex flex-col justify-center gap-3 sm:order-1">
+                {latestNews.date_label && (
+                  <span className="text-sm font-medium text-accent">
+                    {latestNews.date_label}
+                  </span>
+                )}
+                <h3 className="text-xl font-semibold">
+                  {latestNews.title}
+                </h3>
+                {latestNews.summary && (
+                  <p className="text-muted-foreground">{latestNews.summary}</p>
+                )}
+                <Link
+                  href={`/aktuelles/${latestNews.slug}`}
+                  className="mt-2 flex items-center gap-1 text-sm font-medium text-primary transition-standard hover:gap-1.5"
+                >
+                  Weiterlesen
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        </Reveal>
       )}
 
       {/* Erfolge */}
       {highlights.length > 0 && (
-        <section className="bg-primary py-20 text-primary-foreground sm:py-28">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-semibold sm:text-3xl">
-              Konkrete Erfolge
-            </h2>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {highlights.map((entry) => (
-                <div
-                  key={entry.id}
-                  className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.06] p-7"
-                >
-                  <p className="text-sm text-primary-foreground/70">
-                    {entry.title}
-                    {entry.period_label ? ` · ${entry.period_label}` : ""}
-                  </p>
-                  <p className="mt-2 text-2xl font-semibold">
-                    {entry.value_label}
-                  </p>
-                </div>
-              ))}
+        <Reveal>
+          <section className="bg-primary py-20 text-primary-foreground sm:py-28">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+              <h2 className="text-2xl font-semibold sm:text-3xl">
+                Konkrete Erfolge
+              </h2>
+              <div className="mt-10 grid gap-6 sm:grid-cols-2">
+                {highlights.map((entry) => (
+                  <div
+                    key={entry.id}
+                    className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.06] p-7 transition-standard hover:bg-primary-foreground/[0.09]"
+                  >
+                    <p className="text-sm text-primary-foreground/70">
+                      {entry.title}
+                      {entry.period_label ? ` · ${entry.period_label}` : ""}
+                    </p>
+                    <p className="mt-2 text-2xl font-semibold">
+                      {entry.value_label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <Link
+                href="/erfolge"
+                className="mt-8 inline-flex items-center gap-1 text-sm font-medium transition-standard hover:gap-1.5"
+              >
+                Alle Erfolge ansehen
+                <ArrowRight className="size-4" />
+              </Link>
             </div>
-            <Link
-              href="/erfolge"
-              className="mt-8 inline-flex items-center gap-1 text-sm font-medium transition-standard hover:gap-1.5"
-            >
-              Alle Erfolge ansehen
-              <ArrowRight className="size-4" />
-            </Link>
-          </div>
-        </section>
+          </section>
+        </Reveal>
       )}
 
       {/* So können Sie helfen */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-        <div className="grid gap-8 rounded-2xl border border-border bg-card p-8 shadow-sm sm:grid-cols-[auto_1fr_auto] sm:items-center sm:p-10">
-          <div className="flex size-14 items-center justify-center rounded-full bg-accent/10">
-            <HandHeart className="size-7 text-accent" aria-hidden="true" />
+      <Reveal>
+        <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+          <div className="grid gap-8 rounded-2xl border border-border bg-card p-8 shadow-sm sm:grid-cols-[auto_1fr_auto] sm:items-center sm:p-10">
+            <div className="flex size-14 items-center justify-center rounded-full bg-accent/10">
+              <HandHeart className="size-7 text-accent" aria-hidden="true" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-semibold text-primary">
+                So können Sie helfen
+              </h2>
+              <p className="mt-2 max-w-2xl text-muted-foreground">
+                Mit einer Spende unterstützen Sie unsere Projekte für Schweizer
+                Wildtiere und ihre Lebensräume – jeder Beitrag zählt.
+              </p>
+            </div>
+            <Link
+              href="/unterstuetzen"
+              className={cn(buttonVariants({ size: "lg" }), "sm:justify-self-end")}
+            >
+              Jetzt spenden
+            </Link>
           </div>
-          <div>
-            <h2 className="text-2xl font-semibold text-primary">
-              So können Sie helfen
-            </h2>
-            <p className="mt-2 max-w-2xl text-muted-foreground">
-              Mit einer Spende unterstützen Sie unsere Projekte für Schweizer
-              Wildtiere und ihre Lebensräume – jeder Beitrag zählt.
-            </p>
-          </div>
-          <Link
-            href="/unterstuetzen"
-            className={cn(buttonVariants({ size: "lg" }), "sm:justify-self-end")}
-          >
-            Jetzt spenden
-          </Link>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       {/* Kontakt */}
       {kontakt && (
-        <section className="bg-muted/50 py-20 sm:py-28">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
-              Kontakt
-            </h2>
-            <div className="mt-8 grid gap-6 sm:grid-cols-3">
-              <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
-                <p className="text-muted-foreground">
-                  {kontakt.strasse}
-                  <br />
-                  {kontakt.ort}
-                </p>
-              </div>
-              {kontakt.telefon && (
+        <Reveal>
+          <section className="bg-muted/50 py-20 sm:py-28">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+              <h2 className="text-2xl font-semibold text-primary sm:text-3xl">
+                Kontakt
+              </h2>
+              <div className="mt-8 grid gap-6 sm:grid-cols-3">
                 <div className="flex items-start gap-3">
-                  <Phone className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
+                  <MapPin className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
+                  <p className="text-muted-foreground">
+                    {kontakt.strasse}
+                    <br />
+                    {kontakt.ort}
+                  </p>
+                </div>
+                {kontakt.telefon && (
+                  <div className="flex items-start gap-3">
+                    <Phone className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
+                    <a
+                      href={`tel:${kontakt.telefon.replace(/\s+/g, "")}`}
+                      className="text-muted-foreground transition-standard hover:text-primary"
+                    >
+                      {kontakt.telefon}
+                    </a>
+                  </div>
+                )}
+                <div className="flex items-start gap-3">
+                  <Mail className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
                   <a
-                    href={`tel:${kontakt.telefon.replace(/\s+/g, "")}`}
+                    href={`mailto:${kontakt.email}`}
                     className="text-muted-foreground transition-standard hover:text-primary"
                   >
-                    {kontakt.telefon}
+                    {kontakt.email}
                   </a>
                 </div>
-              )}
-              <div className="flex items-start gap-3">
-                <Mail className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
-                <a
-                  href={`mailto:${kontakt.email}`}
-                  className="text-muted-foreground transition-standard hover:text-primary"
-                >
-                  {kontakt.email}
-                </a>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Reveal>
       )}
     </>
   );

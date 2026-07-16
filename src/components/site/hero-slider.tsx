@@ -56,6 +56,7 @@ export function HeroSlider({ images }: { images: HeroImage[] }) {
           alt={image.alt}
           fill
           priority={i === 0}
+          loading={i === 0 ? undefined : "eager"}
           fetchPriority={i === 0 ? "high" : undefined}
           sizes="100vw"
           className={`object-cover transition-opacity duration-1000 ease-in-out ${
@@ -65,7 +66,7 @@ export function HeroSlider({ images }: { images: HeroImage[] }) {
       ))}
 
       {images.length > 1 && (
-        <div className="absolute inset-x-0 bottom-6 z-10 flex justify-center gap-2">
+        <div className="absolute inset-x-0 bottom-3 z-10 flex justify-center sm:bottom-6">
           {images.map((image, i) => (
             <button
               key={image.url}
@@ -73,10 +74,14 @@ export function HeroSlider({ images }: { images: HeroImage[] }) {
               onClick={() => goTo(i)}
               aria-label={`Bild ${i + 1} von ${images.length} anzeigen`}
               aria-current={i === index}
-              className={`h-2 rounded-full transition-standard ${
-                i === index ? "w-6 bg-primary-foreground" : "w-2 bg-primary-foreground/50 hover:bg-primary-foreground/75"
-              }`}
-            />
+              className="group flex size-11 items-center justify-center"
+            >
+              <span
+                className={`h-2 rounded-full transition-standard ${
+                  i === index ? "w-6 bg-primary-foreground" : "w-2 bg-primary-foreground/50 group-hover:bg-primary-foreground/75"
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}

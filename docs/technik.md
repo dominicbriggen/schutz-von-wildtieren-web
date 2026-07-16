@@ -9,9 +9,14 @@ eigenen hochauflösenden Aufnahmen vorlagen:
 
 | Bild | Fotograf/in | Quelle | Lizenz |
 |---|---|---|---|
-| Reh-Kitz | Dave Dodson | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Roe_Deer_Fawn_(38558766).jpeg) | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/deed.de) |
-| Igel | Rhamely | [Unsplash](https://unsplash.com/photos/a-close-up-of-a-hedgehog-in-the-grass-4ubVpOKj8ko) | [Unsplash-Lizenz](https://unsplash.com/license) (frei nutzbar, keine Namensnennung erforderlich) |
+| Reh-Kitz | Vincent van Zalinge | [Unsplash](https://unsplash.com/photos/photo-1506099914961-765be7a97019) | [Unsplash-Lizenz](https://unsplash.com/license) (frei nutzbar, keine Namensnennung erforderlich) |
+| Igel | Lukas Seitz | [Unsplash](https://unsplash.com/photos/a-hedgehog-is-sitting-in-the-grass-TCmqQE13aP0) | [Unsplash-Lizenz](https://unsplash.com/license) (frei nutzbar, keine Namensnennung erforderlich) |
 | Wildbiene | Rapha Wilde | [Unsplash](https://unsplash.com/photos/a-bee-on-a-flower-aqoX83qg6E8) | [Unsplash-Lizenz](https://unsplash.com/license) (frei nutzbar, keine Namensnennung erforderlich) |
+
+Ausgewählt aus einer Prüfung mehrerer Kandidaten (u. a. auch ein in der
+Schweiz aufgenommenes Reh-Kitz-Porträt von Jean-Paul Wettstein auf Pexels);
+diese drei Bilder boten die schärfste Bildqualität und den besten
+Bildausschnitt für die Textüberlagerung im Hero-Bereich.
 
 Die Namensnennung wird trotzdem als gute Praxis eingehalten. Änderbar im
 Verwaltungsbereich unter **Startseite → Startbilder**.

@@ -30,13 +30,13 @@ insert into content_blocks (key, data) values (
     "hero_images": [
       {
         "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-rehkitz.jpg",
-        "alt": "Reh-Kitz steht im hohen Gras am Waldrand",
-        "credit": "Foto: Dave Dodson / Wikimedia Commons, CC BY 3.0"
+        "alt": "Reh-Kitz steht scharf im Fokus zwischen grünen Maispflanzen",
+        "credit": "Foto: Vincent van Zalinge / Unsplash"
       },
       {
         "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-igel.jpg",
-        "alt": "Igel zusammengerollt im Gras, Ansicht von oben",
-        "credit": "Foto: Rhamely / Unsplash"
+        "alt": "Igel läuft durch sonnenbeschienenes Gras",
+        "credit": "Foto: Lukas Seitz / Unsplash"
       },
       {
         "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-wildbiene.jpg",
