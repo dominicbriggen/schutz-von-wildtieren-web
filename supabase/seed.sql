@@ -29,19 +29,22 @@ insert into content_blocks (key, data) values (
     "secondary_cta_href": "/unterstuetzen",
     "hero_images": [
       {
-        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-rehkitz.jpg",
-        "alt": "Reh-Kitz steht scharf im Fokus zwischen grünen Maispflanzen",
-        "credit": "Foto: Vincent van Zalinge / Unsplash"
+        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-reh-wiese.jpg",
+        "alt": "Reh mit Kitz auf einer blühenden Sommerwiese",
+        "credit": "Foto: Maria Argiroudaki / Pexels",
+        "position": "50% 50%"
       },
       {
-        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-igel.jpg",
-        "alt": "Igel läuft durch sonnenbeschienenes Gras",
-        "credit": "Foto: Lukas Seitz / Unsplash"
+        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-igel-blume.jpg",
+        "alt": "Igel schnuppert im Abendlicht an einer weissen Blüte",
+        "credit": "Foto: Nikola Tomašić / Pexels",
+        "position": "42% 50%"
       },
       {
-        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-wildbiene.jpg",
-        "alt": "Wildbiene im Anflug auf eine Mohnblüte",
-        "credit": "Foto: Rapha Wilde / Unsplash"
+        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-wildbiene-distel.jpg",
+        "alt": "Hummel sammelt Nektar auf einer violetten Distelblüte",
+        "credit": "Foto: Michelle Reeves / Pexels",
+        "position": "50% 32%"
       }
     ]
   }$$::jsonb

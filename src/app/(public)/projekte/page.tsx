@@ -15,10 +15,11 @@ export default async function ProjektePage() {
   return (
     <>
       <PageHero
+        eyebrow="Was wir tun"
         title="Projekte"
         lead="Konkrete, praxisnahe Massnahmen für den Schutz von Wildtieren und ihrer Lebensräume in der Schweiz."
       />
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
         <h2 className="sr-only">Alle Projekte</h2>
         {projects.length === 0 ? (
           <p className="text-muted-foreground">

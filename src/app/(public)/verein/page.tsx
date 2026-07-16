@@ -28,6 +28,7 @@ export default async function VereinPage() {
   return (
     <>
       <PageHero
+        eyebrow="Über uns"
         title="Unsere Organisation"
         lead="Der Verein Schutz von Wildtieren wurde 2023 gegründet und setzt sich für den Schutz von Wildtieren und ihrer Lebensräume in der Schweiz ein."
       />

@@ -42,7 +42,7 @@ export default async function AktuellesDetailPage({
           Vorschau — dieser Beitrag ist noch nicht veröffentlicht und nur für Sie als Administrator sichtbar.
         </div>
       )}
-      <PageHero title={item.title} lead={item.date_label ?? undefined} />
+      <PageHero eyebrow="Aktuelles" title={item.title} lead={item.date_label ?? undefined} />
       {item.cover_image_url && (
         <div className="relative aspect-[16/7] w-full overflow-hidden bg-muted">
           <Image

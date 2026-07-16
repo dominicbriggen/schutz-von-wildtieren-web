@@ -21,7 +21,7 @@ export function MobileNav() {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
         render={
-          <Button variant="ghost" size="icon" className="size-11 md:hidden" aria-label="Menü öffnen" />
+          <Button variant="ghost" size="icon" className="size-11 lg:hidden" aria-label="Menü öffnen" />
         }
       >
         <Menu className="size-6" />
@@ -50,7 +50,7 @@ export function MobileNav() {
             render={
               <Link
                 href="/unterstuetzen"
-                className="mt-3 rounded-xl bg-[#4F7D5C] px-3.5 py-3 text-center text-base font-semibold text-white shadow-sm transition-standard hover:bg-[#3F6549]"
+                className="mt-3 rounded-xl bg-brand px-3.5 py-3 text-center text-base font-semibold text-brand-foreground shadow-sm transition-standard hover:bg-[color-mix(in_oklch,var(--brand),black_12%)]"
               />
             }
           >

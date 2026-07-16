@@ -7,16 +7,18 @@ Einzig die drei Hintergrundbilder der Startseiten-Diashow sind lizenzierte
 externe Aufnahmen von Schweizer Wildtieren, da für diesen Zweck keine
 eigenen hochauflösenden Aufnahmen vorlagen:
 
-| Bild | Fotograf/in | Quelle | Lizenz |
-|---|---|---|---|
-| Reh-Kitz | Vincent van Zalinge | [Unsplash](https://unsplash.com/photos/photo-1506099914961-765be7a97019) | [Unsplash-Lizenz](https://unsplash.com/license) (frei nutzbar, keine Namensnennung erforderlich) |
-| Igel | Lukas Seitz | [Unsplash](https://unsplash.com/photos/a-hedgehog-is-sitting-in-the-grass-TCmqQE13aP0) | [Unsplash-Lizenz](https://unsplash.com/license) (frei nutzbar, keine Namensnennung erforderlich) |
-| Wildbiene | Rapha Wilde | [Unsplash](https://unsplash.com/photos/a-bee-on-a-flower-aqoX83qg6E8) | [Unsplash-Lizenz](https://unsplash.com/license) (frei nutzbar, keine Namensnennung erforderlich) |
+| Bild | Datei | Fotograf/in | Quelle | Lizenz |
+|---|---|---|---|---|
+| Reh mit Kitz auf Sommerwiese | `hero-reh-wiese.jpg` | Maria Argiroudaki | [Pexels](https://www.pexels.com/photo/deer-in-meadow-19902553/) | [Pexels-Lizenz](https://www.pexels.com/license/) (frei nutzbar, kommerziell, keine Namensnennung erforderlich) |
+| Igel an weisser Blüte | `hero-igel-blume.jpg` | Nikola Tomašić | [Pexels](https://www.pexels.com/photo/european-hedgehog-sniffing-a-flower-in-grass-36483714/) | [Pexels-Lizenz](https://www.pexels.com/license/) (frei nutzbar, kommerziell, keine Namensnennung erforderlich) |
+| Hummel auf Distelblüte | `hero-wildbiene-distel.jpg` | Michelle Reeves | [Pexels](https://www.pexels.com/photo/bumblebee-on-purple-flower-in-macro-photography-2662156/) | [Pexels-Lizenz](https://www.pexels.com/license/) (frei nutzbar, kommerziell, keine Namensnennung erforderlich) |
 
-Ausgewählt aus einer Prüfung mehrerer Kandidaten (u. a. auch ein in der
-Schweiz aufgenommenes Reh-Kitz-Porträt von Jean-Paul Wettstein auf Pexels);
-diese drei Bilder boten die schärfste Bildqualität und den besten
-Bildausschnitt für die Textüberlagerung im Hero-Bereich.
+Beim Redesign 2026 wurden alle drei Hero-Bilder gegen schärfere, hochwertigere
+und emotionalere Aufnahmen ausgetauscht (neue Dateinamen, alte Dateien nicht
+mehr referenziert). Ausgewählt aus einer visuellen Prüfung mehrerer Kandidaten;
+diese drei boten die beste Bildqualität, Bildwirkung und den besten
+Bildausschnitt für die Textüberlagerung im Hero-Bereich. Jedes Bild besitzt
+eine eigene `position` (CSS object-position) für einen sauberen mobilen Zuschnitt.
 
 Die Namensnennung wird trotzdem als gute Praxis eingehalten. Änderbar im
 Verwaltungsbereich unter **Startseite → Startbilder**.

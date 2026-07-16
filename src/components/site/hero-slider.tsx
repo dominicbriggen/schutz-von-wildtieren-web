@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "
 import Image from "next/image";
 import type { HeroImage } from "@/lib/types";
 
-const INTERVAL_MS = 6000;
+const INTERVAL_MS = 6500;
 
 function subscribeReducedMotion(callback: () => void) {
   const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -43,9 +43,11 @@ export function HeroSlider({ images }: { images: HeroImage[] }) {
 
   if (images.length === 0) return null;
 
+  const activeCredit = images[index]?.credit;
+
   return (
     <div
-      className="absolute inset-0"
+      className="absolute inset-0 overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -59,14 +61,22 @@ export function HeroSlider({ images }: { images: HeroImage[] }) {
           loading={i === 0 ? undefined : "eager"}
           fetchPriority={i === 0 ? "high" : undefined}
           sizes="100vw"
-          className={`object-cover transition-opacity duration-1000 ease-in-out ${
+          style={{ objectPosition: image.position ?? "center" }}
+          className={`object-cover transition-opacity duration-[1200ms] ease-in-out ${
             i === index ? "opacity-100" : "opacity-0"
           }`}
         />
       ))}
 
+      {/* Bildnachweis, sehr dezent */}
+      {activeCredit && (
+        <p className="pointer-events-none absolute bottom-2.5 right-3 z-20 max-w-[60%] truncate text-right text-[10px] font-medium text-white/55">
+          {activeCredit}
+        </p>
+      )}
+
       {images.length > 1 && (
-        <div className="absolute inset-x-0 bottom-3 z-10 flex justify-center sm:bottom-6">
+        <div className="absolute inset-x-0 bottom-4 z-20 flex justify-center gap-1 sm:bottom-5">
           {images.map((image, i) => (
             <button
               key={image.url}
@@ -74,11 +84,13 @@ export function HeroSlider({ images }: { images: HeroImage[] }) {
               onClick={() => goTo(i)}
               aria-label={`Bild ${i + 1} von ${images.length} anzeigen`}
               aria-current={i === index}
-              className="group flex size-11 items-center justify-center"
+              className="group flex h-11 w-8 items-center justify-center"
             >
               <span
-                className={`h-2 rounded-full transition-standard ${
-                  i === index ? "w-6 bg-primary-foreground" : "w-2 bg-primary-foreground/50 group-hover:bg-primary-foreground/75"
+                className={`h-1.5 rounded-full transition-standard ${
+                  i === index
+                    ? "w-7 bg-white"
+                    : "w-2.5 bg-white/45 group-hover:bg-white/70"
                 }`}
               />
             </button>

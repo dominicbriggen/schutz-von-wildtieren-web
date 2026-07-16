@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/site/page-hero";
+import { Reveal } from "@/components/site/reveal";
 import { getErfolgeIntro, getProjects, getSuccessEntries } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -28,21 +29,22 @@ export default async function ErfolgePage() {
   return (
     <>
       <PageHero
+        eyebrow="Wirkung"
         title="Erfolge"
         lead="Was wir mit Ihrer Unterstützung bisher konkret erreicht haben."
       />
 
       {intro && intro.kantone.length > 0 && (
-        <section className="border-b border-border bg-muted/60 py-10">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <section className="border-b border-border/70 bg-muted/50 py-8">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-3 px-5 sm:px-6 lg:px-8">
             <p className="text-sm font-medium text-muted-foreground">
-              Wir sind bereits in folgenden Kantonen aktiv:
+              Bereits aktiv in:
             </p>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2">
               {intro.kantone.map((kanton) => (
                 <span
                   key={kanton}
-                  className="rounded-full bg-card px-3 py-1 text-sm text-foreground shadow-sm"
+                  className="rounded-full border border-border/70 bg-card px-3.5 py-1.5 text-sm font-medium text-foreground shadow-card"
                 >
                   {kanton}
                 </span>
@@ -52,7 +54,7 @@ export default async function ErfolgePage() {
         </section>
       )}
 
-      <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <section className="mx-auto max-w-4xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
         {byProject.size === 0 ? (
           <p className="text-muted-foreground">
             [Information muss ergänzt oder bestätigt werden]
@@ -60,29 +62,29 @@ export default async function ErfolgePage() {
         ) : (
           <div className="space-y-14">
             {Array.from(byProject.entries()).map(([slug, projectEntries]) => (
-              <div key={slug}>
-                <h2 className="text-xl font-semibold text-primary">
+              <Reveal key={slug}>
+                <h2 className="text-xl font-semibold text-primary sm:text-2xl">
                   {projectTitle(slug)}
                 </h2>
-                <ol className="mt-4 border-l-2 border-border pl-6">
+                <ol className="mt-5 border-l-2 border-border pl-6">
                   {projectEntries.map((entry) => (
                     <li key={entry.id} className="relative pb-6 last:pb-0">
                       <span
-                        className="absolute -left-[27px] top-1.5 size-3 rounded-full bg-accent"
+                        className="absolute -left-[27px] top-1.5 size-3 rounded-full bg-brand ring-4 ring-background"
                         aria-hidden="true"
                       />
                       {entry.period_label && (
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                           {entry.period_label}
                         </p>
                       )}
-                      <p className="font-medium text-foreground">
+                      <p className="mt-0.5 font-medium text-foreground">
                         {entry.value_label}
                       </p>
                     </li>
                   ))}
                 </ol>
-              </div>
+              </Reveal>
             ))}
           </div>
         )}

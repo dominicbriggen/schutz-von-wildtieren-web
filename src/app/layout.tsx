@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({
+// Eine einzige, moderne Sans-Serif für die gesamte Website (Überschriften
+// und Fliesstext). Ruhig, geometrisch-warm, gut lesbar auf Mobile.
+const manrope = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://schutz-von-wildtieren-web.vercel.app";
@@ -42,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de-CH" className={`${inter.variable} ${plusJakarta.variable} h-full antialiased`}>
+    <html lang="de-CH" className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {children}
         <Toaster />

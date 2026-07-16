@@ -29,9 +29,9 @@ export default async function UnterstuetzenPage() {
 
   return (
     <>
-      <PageHero title="Unterstützen" lead={spenden.title} />
+      <PageHero eyebrow="Mithelfen" title="Unterstützen" lead={spenden.title} />
 
-      <section className="mx-auto grid max-w-5xl gap-10 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-2 lg:px-8">
+      <section className="mx-auto grid max-w-5xl gap-10 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-2 lg:px-8">
         <div>
           <ProseText text={spenden.text} />
 
@@ -39,7 +39,7 @@ export default async function UnterstuetzenPage() {
             {spenden.amounts.map((amount) => (
               <span
                 key={amount}
-                className="rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-foreground shadow-sm"
+                className="rounded-full border border-border/70 bg-card px-4 py-1.5 text-sm font-semibold text-foreground shadow-card"
               >
                 {amount} CHF
               </span>
@@ -51,7 +51,7 @@ export default async function UnterstuetzenPage() {
 
           <div
             role="status"
-            className="mt-8 rounded-2xl border border-accent/30 bg-accent/[0.07] p-6"
+            className="mt-8 rounded-2xl border border-brand/25 bg-brand/[0.06] p-6"
           >
             <p className="text-sm font-medium text-foreground">
               Online-Spenden aktuell in Vorbereitung
@@ -81,7 +81,7 @@ export default async function UnterstuetzenPage() {
             )}
             <a
               href={`mailto:${kontakt?.email ?? ""}`}
-              className={cn(buttonVariants(), "mt-4 shadow-sm")}
+              className={cn(buttonVariants({ variant: "brand" }), "mt-5")}
             >
               Für eine Spende kontaktieren
             </a>

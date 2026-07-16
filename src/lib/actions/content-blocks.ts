@@ -22,6 +22,7 @@ const heroImageSchema = z.object({
   url: z.string().min(1),
   alt: z.string(),
   credit: z.string().optional(),
+  position: z.string().optional(),
 });
 
 const homeHeroSchema = z.object({

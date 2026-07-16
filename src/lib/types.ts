@@ -65,6 +65,9 @@ export type HeroImage = {
   url: string;
   alt: string;
   credit?: string;
+  /** CSS object-position (z.B. "50% 32%"), damit das Motiv beim mobilen
+   *  Zuschnitt sichtbar bleibt. Fällt auf "center" zurück. */
+  position?: string;
 };
 
 export type HomeHeroData = {
