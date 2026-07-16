@@ -35,8 +35,13 @@ export async function proxy(request: NextRequest) {
 
   const isAdminRoute = request.nextUrl.pathname.startsWith("/admin");
   const isLoginRoute = request.nextUrl.pathname === "/admin/login";
+  // The invite/recovery session only exists in the URL fragment, which
+  // browsers never send to the server — so this route can't be gated here.
+  // The page itself refuses to render a usable form without a valid
+  // client-side session.
+  const isSetPasswordRoute = request.nextUrl.pathname === "/admin/set-password";
 
-  if (isAdminRoute && !isLoginRoute) {
+  if (isAdminRoute && !isLoginRoute && !isSetPasswordRoute) {
     if (!user) {
       const loginUrl = new URL("/admin/login", request.url);
       return NextResponse.redirect(loginUrl);
