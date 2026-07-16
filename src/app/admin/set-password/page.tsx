@@ -8,24 +8,61 @@ import { Label } from "@/components/ui/label";
 import { Logo } from "@/components/logo";
 import { createClient } from "@/lib/supabase/client";
 
+const INVALID_LINK_MESSAGE =
+  "Dieser Einladungslink ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen Link an.";
+
 export default function SetPasswordPage() {
   const router = useRouter();
   const [ready, setReady] = useState(false);
+  const [linkError, setLinkError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     const supabase = createClient();
-    // The invite/recovery link's session tokens are in the URL; the
-    // browser client picks them up automatically on load and persists
-    // them to cookies so the server can recognise the session too.
-    supabase.auth.getSession().then(({ data, error: sessionError }) => {
-      if (sessionError || !data.session) {
-        setError(
-          "Dieser Einladungslink ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen Link an."
-        );
+
+    // Supabase-Einladungs-/Wiederherstellungslinks liefern die Session je nach
+    // Flow unterschiedlich aus: als Token im URL-Hash (#access_token=…, impliziter
+    // Flow der klassischen E-Mail-Links) oder als ?code=… (PKCE). Der SSR-Client
+    // verarbeitet den Hash nicht automatisch, daher lösen wir beide Fälle hier
+    // explizit auf und persistieren die Session in Cookies.
+    async function establishSession() {
+      try {
+        const hashParams = window.location.hash.startsWith("#")
+          ? new URLSearchParams(window.location.hash.slice(1))
+          : null;
+        const accessToken = hashParams?.get("access_token");
+        const refreshToken = hashParams?.get("refresh_token");
+
+        if (accessToken && refreshToken) {
+          const { error: setError } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+          // Tokens sofort aus URL/History entfernen (nicht im Verlauf lassen).
+          window.history.replaceState(null, "", window.location.pathname);
+          if (!setError) return true;
+        }
+
+        const code = new URLSearchParams(window.location.search).get("code");
+        if (code) {
+          const { error: exchangeError } =
+            await supabase.auth.exchangeCodeForSession(code);
+          window.history.replaceState(null, "", window.location.pathname);
+          if (!exchangeError) return true;
+        }
+
+        // Evtl. besteht bereits eine gültige Session (Seite neu geladen).
+        const { data } = await supabase.auth.getSession();
+        return Boolean(data.session);
+      } catch {
+        return false;
       }
+    }
+
+    establishSession().then((ok) => {
+      if (!ok) setLinkError(INVALID_LINK_MESSAGE);
       setReady(true);
     });
   }, []);
@@ -76,6 +113,18 @@ export default function SetPasswordPage() {
 
         {!ready ? (
           <p className="mt-8 text-center text-sm text-muted-foreground">Wird geladen…</p>
+        ) : linkError ? (
+          <div className="mt-8 space-y-4 text-center">
+            <p role="alert" className="text-sm font-medium text-destructive">
+              {linkError}
+            </p>
+            <a
+              href="/admin/login"
+              className="inline-block text-sm font-medium text-primary underline-offset-4 hover:underline"
+            >
+              Zur Anmeldung
+            </a>
+          </div>
         ) : success ? (
           <p role="status" className="mt-8 text-center text-sm text-foreground">
             Passwort gespeichert. Sie werden weitergeleitet…
