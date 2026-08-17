@@ -7,6 +7,8 @@ import type {
   KontaktData,
   NewsItem,
   Project,
+  ProjectStat,
+  ProjectStatsData,
   SpendenData,
   SuccessEntry,
   VereinData,
@@ -28,6 +30,15 @@ export const getKontakt = () => getBlock<KontaktData>("kontakt");
 export const getSpenden = () => getBlock<SpendenData>("spenden");
 export const getErfolgeIntro = () => getBlock<ErfolgeIntroData>("erfolge_intro");
 export const getFooter = () => getBlock<FooterData>("footer");
+export const getProjectStats = () => getBlock<ProjectStatsData>("project_stats");
+
+/** Kennzahl eines einzelnen Projekts anhand des Slugs finden. */
+export function findProjectStat(
+  stats: ProjectStatsData | null,
+  slug: string
+): ProjectStat | null {
+  return stats?.entries.find((e) => e.slug === slug) ?? null;
+}
 
 export async function getProjects(opts?: { onlyPublished?: boolean }) {
   const supabase = await createClient();

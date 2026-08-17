@@ -118,6 +118,21 @@ insert into content_blocks (key, data) values (
   }$$::jsonb
 ) on conflict (key) do update set data = excluded.data;
 
+-- Zentrale Projekt-Kennzahlen: einzige Quelle der Wahrheit für Wirkungszahlen
+-- + Projektstatus. Pflegbar im Admin unter „Kennzahlen".
+insert into content_blocks (key, data) values (
+  'project_stats',
+  $${
+    "entries": [
+      { "slug": "wildtierschonender-weidezaun", "is_main": true, "status": "aktiv", "metric_value": "18'000", "metric_unit": "Meter", "metric_label": "finanzierte Laufmeter", "as_of": "Juli 2026" },
+      { "slug": "wildseek", "is_main": true, "status": "aktiv", "metric_value": "117", "metric_unit": "Systeme", "metric_label": "finanzierte Systeme", "as_of": "Juli 2026" },
+      { "slug": "biodiversitaetsinseln", "is_main": true, "status": "aktiv", "metric_value": "20", "metric_unit": "Inseln", "metric_label": "realisierte Biodiversitätsinseln", "notes": ["Weitere Inseln sind bereits finanziert.", "Weitere Standorte befinden sich in Planung bzw. Konzeption."] },
+      { "slug": "wildsalzquellen", "is_main": false, "status": "pausiert", "status_label": "Projektpause seit Dezember 2025" },
+      { "slug": "biberdamm-ueberwachung", "is_main": false, "status": "aktiv" }
+    ]
+  }$$::jsonb
+) on conflict (key) do update set data = excluded.data;
+
 -- ---------------------------------------------------------------------
 -- projects
 -- ---------------------------------------------------------------------
