@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Radar, Fence, Scale, ClipboardList } from "lucide-react";
+import { ArrowRight, Binoculars, Fence, Sprout, HandHeart } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 
 export const metadata: Metadata = {
@@ -10,9 +10,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/mitmachen" },
 };
 
+// Ruhige, natürliche Bildsprache statt technischer UI-Symbole:
+//  Fernglas (Wildtierbeobachtung), Zaun (weich), junger Trieb/Weide
+//  (Praxis statt Waage), Hand mit Herz (nahbares Mitmachen).
 const ENTRIES = [
   {
-    icon: Radar,
+    icon: Binoculars,
     title: "WILDSEEK-Einsatz melden",
     text: "Für Betriebe, die bereits ein WILDSEEK-System einsetzen.",
     href: "/mitmachen/wildseek",
@@ -24,13 +27,13 @@ const ENTRIES = [
     href: "/mitmachen/weidezaun-projekt",
   },
   {
-    icon: Scale,
+    icon: Sprout,
     title: "Bestehenden Weidezaun melden",
     text: "Für Betriebe, die nicht an unserem Projekt teilnehmen und Erfahrungen mit anderen Zaunsystemen melden möchten.",
     href: "/mitmachen/weidezaun-vergleich",
   },
   {
-    icon: ClipboardList,
+    icon: HandHeart,
     title: "An einem Projekt teilnehmen",
     text: "Für Betriebe, die sich für WILDSEEK oder wildtierschonende Weidezäune interessieren.",
     href: "/mitmachen/projektteilnahme",
@@ -54,8 +57,12 @@ export default function MitmachenPage() {
                 href={entry.href}
                 className="group flex items-start gap-5 border-b border-border py-7 transition-standard hover:bg-secondary/25"
               >
-                <span className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-lg bg-secondary text-primary">
-                  <entry.icon className="size-5" aria-hidden="true" />
+                <span className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+                  <entry.icon
+                    className="size-[1.35rem]"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="flex items-center gap-2 text-lg font-semibold text-primary">
