@@ -12,6 +12,11 @@ import {
   isHoneypotTripped,
   isTooFast,
 } from "@/lib/forms/anti-spam";
+import {
+  sendWildseekEmails,
+  sendFenceEmails,
+  sendInterestEmails,
+} from "@/lib/email/notifications";
 
 export type MitmachenFormState = {
   status: "idle" | "success" | "error";
@@ -125,8 +130,20 @@ export async function submitWildseekReport(
   }
 
   const supabase = await createClient();
-  const { error } = await supabase.from("wildseek_reports").insert(parsed.data);
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
+  const { error } = await supabase
+    .from("wildseek_reports")
+    .insert({ ...parsed.data, id, created_at: createdAt });
   if (error) return GENERIC_ERROR;
+
+  // Storage in the database has priority: a failing e-mail must never lose a
+  // correctly submitted report, so notifications run in a swallowed try/catch.
+  try {
+    await sendWildseekEmails(parsed.data, id, createdAt);
+  } catch (e) {
+    console.error("[mitmachen] WILDSEEK-Benachrichtigung fehlgeschlagen", e);
+  }
   return SUCCESS;
 }
 
@@ -207,8 +224,18 @@ export async function submitFenceReport(
   }
 
   const supabase = await createClient();
-  const { error } = await supabase.from("fence_reports").insert(parsed.data);
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
+  const { error } = await supabase
+    .from("fence_reports")
+    .insert({ ...parsed.data, id, created_at: createdAt });
   if (error) return GENERIC_ERROR;
+
+  try {
+    await sendFenceEmails(parsed.data, id, createdAt);
+  } catch (e) {
+    console.error("[mitmachen] Weidezaun-Benachrichtigung fehlgeschlagen", e);
+  }
   return SUCCESS;
 }
 
@@ -251,7 +278,17 @@ export async function submitProjectInterest(
   }
 
   const supabase = await createClient();
-  const { error } = await supabase.from("project_interests").insert(parsed.data);
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
+  const { error } = await supabase
+    .from("project_interests")
+    .insert({ ...parsed.data, id, created_at: createdAt });
   if (error) return GENERIC_ERROR;
+
+  try {
+    await sendInterestEmails(parsed.data, id, createdAt);
+  } catch (e) {
+    console.error("[mitmachen] Interessenten-Benachrichtigung fehlgeschlagen", e);
+  }
   return SUCCESS;
 }
