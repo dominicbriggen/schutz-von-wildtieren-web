@@ -83,50 +83,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ───────────── 2 · Wirkung (offene Kennzahlen, keine Cards) ───────────── */}
-      {mainStats.length > 0 && (
-        <Reveal>
-          <section className="border-b border-border/70 bg-secondary/25 py-16 sm:py-20">
-            <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-              <div className="flex flex-wrap items-end justify-between gap-4">
-                <SectionHeading eyebrow="Wirkung" title="Unsere Wirkung in Zahlen" />
-                <Link
-                  href="/erfolge"
-                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-standard hover:gap-2.5"
-                >
-                  Unsere Wirkung entdecken
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-              <dl className="mt-10 grid grid-cols-1 gap-y-8 sm:grid-cols-3 sm:gap-y-0 sm:divide-x sm:divide-border/70">
-                {mainStats.map((s, i) => (
-                  <div
-                    key={s.slug}
-                    className={cn(
-                      "sm:px-8",
-                      i === 0 && "sm:pl-0",
-                      i === mainStats.length - 1 && "sm:pr-0"
-                    )}
-                  >
-                    <dt className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-                      {s.metric_value}
-                      <span className="ml-1.5 text-xl font-semibold text-primary/80 sm:text-2xl">
-                        {s.metric_unit}
-                      </span>
-                    </dt>
-                    <dd className="mt-2 text-sm text-muted-foreground">
-                      {projectBySlug.get(s.slug)?.title ?? s.slug}
-                      {s.metric_label ? ` – ${s.metric_label}` : ""}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </section>
-        </Reveal>
-      )}
-
-      {/* ───────────── 3 · Unsere Projekte ───────────── */}
+      {/* ───────────── 2 · Unsere Projekte ───────────── */}
       <Reveal>
         <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -150,6 +107,53 @@ export default async function HomePage() {
           </div>
         </section>
       </Reveal>
+
+      {/* ───────────── 3 · Unsere Wirkung in Zahlen (dunkles Naturgrün-Band) ───────────── */}
+      {mainStats.length > 0 && (
+        <Reveal>
+          <section className="bg-primary py-16 text-primary-foreground sm:py-24">
+            <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <SectionHeading
+                  tone="onPrimary"
+                  eyebrow="Wirkung"
+                  title="Unsere Wirkung in Zahlen"
+                />
+                <Link
+                  href="/erfolge"
+                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[#e4c78a] transition-standard hover:gap-2.5"
+                >
+                  Unsere Wirkung entdecken
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+              <dl className="mt-10 grid grid-cols-1 gap-y-8 sm:grid-cols-3 sm:gap-y-0 sm:divide-x sm:divide-primary-foreground/20">
+                {mainStats.map((s, i) => (
+                  <div
+                    key={s.slug}
+                    className={cn(
+                      "sm:px-8",
+                      i === 0 && "sm:pl-0",
+                      i === mainStats.length - 1 && "sm:pr-0"
+                    )}
+                  >
+                    <dt className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl">
+                      {s.metric_value}
+                      <span className="ml-1.5 text-xl font-semibold text-primary-foreground/75 sm:text-2xl">
+                        {s.metric_unit}
+                      </span>
+                    </dt>
+                    <dd className="mt-2 text-sm text-primary-foreground/70">
+                      {projectBySlug.get(s.slug)?.title ?? s.slug}
+                      {s.metric_label ? ` – ${s.metric_label}` : ""}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        </Reveal>
+      )}
 
       {/* ───────────── 4 · Über den Verein (Text + Bild, keine Card) ───────────── */}
       {introParagraphs.length > 0 && (

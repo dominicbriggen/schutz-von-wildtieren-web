@@ -88,7 +88,7 @@ export function KennzahlenForm({
                 id={`value-${i}`}
                 value={entry.metric_value ?? ""}
                 onChange={(e) => update(i, { metric_value: e.target.value })}
-                placeholder="z. B. 117"
+                placeholder="z. B. 112"
                 className="mt-1.5"
               />
             </div>
