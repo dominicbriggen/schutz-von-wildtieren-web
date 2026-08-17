@@ -32,6 +32,12 @@ export const getErfolgeIntro = () => getBlock<ErfolgeIntroData>("erfolge_intro")
 export const getFooter = () => getBlock<FooterData>("footer");
 export const getProjectStats = () => getBlock<ProjectStatsData>("project_stats");
 
+/** Admin-managed WILDSEEK mounting types (central, editable list). */
+export async function getMountingTypes(): Promise<string[]> {
+  const block = await getBlock<{ options?: string[] }>("wildseek_mounting_types");
+  return Array.isArray(block?.options) ? block!.options : [];
+}
+
 /** Kennzahl eines einzelnen Projekts anhand des Slugs finden. */
 export function findProjectStat(
   stats: ProjectStatsData | null,
