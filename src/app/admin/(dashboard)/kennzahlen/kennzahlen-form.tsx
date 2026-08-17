@@ -42,7 +42,7 @@ export function KennzahlenForm({
       <input type="hidden" name="entries" value={JSON.stringify(entries)} />
       <p className="text-sm text-muted-foreground">
         Diese Kennzahlen werden zentral gepflegt und automatisch auf Startseite,
-        Projektseiten und der Seite „Wirkung" verwendet. Eine Änderung hier wirkt
+        Projektseiten und der Seite „Wirkung“ verwendet. Eine Änderung hier wirkt
         sich überall aus.
       </p>
 
