@@ -11,6 +11,7 @@ export const NAV_LINKS = [
   { href: "/", label: "Startseite" },
   { href: "/projekte", label: "Projekte" },
   { href: "/erfolge", label: "Wirkung" },
+  { href: "/bilder", label: "Galerie" },
   { href: "/aktuelles", label: "Aktuelles" },
   { href: "/verein", label: "Über uns" },
   { href: "/mitmachen", label: "Mitmachen" },
