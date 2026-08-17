@@ -229,7 +229,9 @@ export default async function ProjektDetailPage({
       )}
 
       {/* ───────── E · Einblicke aus dem Projekt ───────── */}
-      {einblicke.length > 0 && (
+      {/* Ab 2 Bildern, damit kein einzelnes (evtl. schwächeres) Bild gross
+          hervorgehoben wird. */}
+      {einblicke.length >= 2 && (
         <section className="border-t border-border/70 py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
