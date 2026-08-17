@@ -158,8 +158,8 @@ Gemeinsam mit Gemeinden, Schulen und engagierten Menschen schaffen wir so ein sc
 (
   'wildseek',
   'WILDSEEK',
-  'Kostenlose Wärmebild- und Videokameras für Landwirtinnen und Landwirte, um Rehkitze vor der Mahd zu retten.',
-  $$Als Verein setzen wir uns aktiv für den Schutz junger Wildtiere ein – insbesondere von Rehkitzen, die jedes Jahr während der Mahd durch landwirtschaftliche Maschinen verletzt oder getötet werden. Um dem entgegenzuwirken, stellen wir Landwirtinnen und Landwirten kostenlos hochwertige Wärme- und Videobildkameras zur Verfügung.
+  'Wärmebild- und Videokameras für teilnehmende Landwirtinnen und Landwirte, um Rehkitze vor der Mahd zu retten.',
+  $$Als Verein setzen wir uns aktiv für den Schutz junger Wildtiere ein – insbesondere von Rehkitzen, die jedes Jahr während der Mahd durch landwirtschaftliche Maschinen verletzt oder getötet werden. Um dem entgegenzuwirken, stellen wir teilnehmenden Landwirtinnen und Landwirten im Rahmen des Projekts hochwertige Wärme- und Videobildkameras bereit – finanziert durch den Verein.
 
 Die Kameras lassen sich einfach an Traktoren montieren und ermöglichen es, während der Mahd Rehkitze frühzeitig im hohen Gras zu erkennen. So können sie rechtzeitig aus der Gefahrenzone gebracht werden – ohne Zeitverlust und ohne zusätzlichen Arbeitsaufwand für die Betriebe.
 
@@ -196,12 +196,12 @@ Hinweis: Seit Dezember 2025 befindet sich dieses Projekt in einer strategischen 
 (
   'wildtierschonender-weidezaun',
   'Wildtierschonender Weidezaun',
-  'Kostenlose, gut sichtbare Schafzäune schützen Nutztiere vor Raubtieren, ohne Wildtiere zu gefährden – Schutz statt Abschuss.',
+  'Wirksame, gut sichtbare Zaunsysteme schützen Wildtiere vor Verhedderungen und bieten gleichzeitig einen effektiven Schutz für Nutztiere. Damit tragen sie dazu bei, Wolfsrisse und Konflikte zwischen Wolf, Nutztierhaltung und Bevölkerung zu reduzieren.',
   $$Dieses Projekt verfolgt drei Hauptziele: einen wildtierschonenden Weidezaun bereitzustellen, der durch geeignete Farben, gut sichtbare Flatterbänder und eine korrekte Installation von Wildtieren zuverlässig erkannt wird; einen mindestens 1,50 m hohen bzw. wolfssicheren Weidezaun zu ermöglichen, damit Nutztiere geschützt werden und keine Forderungen nach Wolfsabschüssen entstehen; und Nutztiere effektiv zu schützen, ohne andere Wildtiere zu gefährden.
 
 Als Verein setzen wir uns für einen verantwortungsvollen Umgang mit Natur und Tierwelt ein. Unser Anliegen ist es, Nutztiere zu schützen, ohne Raubtiere wie den Wolf für Konflikte verantwortlich zu machen.
 
-In der Schweiz erhalten Bäuerinnen und Bauern für Herdenschutzmassnahmen häufig nur begrenzt finanzielle Unterstützung. Besonders bei der Anschaffung von Schafzäunen tragen Landwirtinnen und Landwirte einen erheblichen Teil der Kosten selbst. Das führt in der Praxis oft zu Frust und zu Forderungen nach Wolfsabschüssen. Um hier gezielt anzusetzen, stellen wir Schafzäune kostenlos zur Verfügung. Unser Grundgedanke: Schutz statt Abschuss.
+In der Schweiz erhalten Bäuerinnen und Bauern für Herdenschutzmassnahmen häufig nur begrenzt finanzielle Unterstützung. Besonders bei der Anschaffung von Schafzäunen tragen Landwirtinnen und Landwirte einen erheblichen Teil der Kosten selbst. Das führt in der Praxis oft zu Frust und zu Forderungen nach Wolfsabschüssen. Um hier gezielt anzusetzen, stellen wir teilnehmenden Betrieben die Schafzäune im Rahmen des Projekts bereit – finanziert durch den Verein. Unser Grundgedanke: Schutz statt Abschuss.
 
 Wir achten darauf, dass unsere Massnahmen sowohl die Sicherheit der Nutztiere als auch die der Wildtiere berücksichtigen. Die Zäune sind mit Reflektoren ausgestattet, damit sie im Dunkeln rechtzeitig wahrgenommen werden und keine Gefahr des Verhedderns besteht.
 
