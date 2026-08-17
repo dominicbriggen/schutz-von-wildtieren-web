@@ -9,4 +9,7 @@ export const ADMIN_NAV_LINKS = [
   { href: "/admin/bilder", label: "Bilder" },
   { href: "/admin/spenden", label: "Spenden" },
   { href: "/admin/kontakt", label: "Kontakt" },
+  { href: "/admin/wildseek", label: "WILDSEEK-Meldungen" },
+  { href: "/admin/weidezaun", label: "Weidezaun-Meldungen" },
+  { href: "/admin/interessenten", label: "Interessenten" },
 ] as const;

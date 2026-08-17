@@ -1,35 +1,39 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Sprout, Building2, HandHeart } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { ArrowRight, Radar, Fence, Scale, ClipboardList } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 
 export const metadata: Metadata = {
-  title: "Mitmachen",
+  title: "Rückmeldungen & Projektteilnahme",
   description:
-    "Landwirtschaftsbetriebe, Gemeinden, Städte, Flächeneigentümer und Spendende können sich am Schutz von Wildtieren beteiligen.",
+    "Rückmeldungen aus der Praxis: WILDSEEK-Einsätze melden, Erfahrungen mit Weidezäunen dokumentieren oder Interesse an einer Projektteilnahme anmelden.",
   alternates: { canonical: "/mitmachen" },
 };
 
-const WAYS = [
+const ENTRIES = [
   {
-    icon: Sprout,
-    title: "Landwirtschaftsbetriebe",
-    text: "Sie möchten Rehkitze vor der Mahd schützen (WILDSEEK) oder Ihre Weiden wildtierschonend einzäunen? Für beide Projekte führen wir Wartelisten – nehmen Sie mit uns Kontakt auf.",
-    cta: { href: "/kontakt", label: "Kontakt aufnehmen" },
+    icon: Radar,
+    title: "WILDSEEK-Einsatz melden",
+    text: "Für Betriebe, die bereits ein WILDSEEK-System einsetzen.",
+    href: "/mitmachen/wildseek",
   },
   {
-    icon: Building2,
-    title: "Gemeinden, Städte & Flächeneigentümer",
-    text: "Sie haben eine geeignete Fläche für eine Biodiversitätsinsel oder möchten ein gemeinsames Projekt umsetzen? Wir freuen uns über Ihre Anfrage.",
-    cta: { href: "/kontakt", label: "Projekt anfragen" },
+    icon: Fence,
+    title: "Wildtierschonender Weidezaun – Rückmeldung",
+    text: "Für Betriebe, die an unserem Weidezaunprojekt teilnehmen.",
+    href: "/mitmachen/weidezaun-projekt",
   },
   {
-    icon: HandHeart,
-    title: "Spenderinnen & Spender",
-    text: "Mit einer Spende unterstützen Sie unsere Projekte für Schweizer Wildtiere direkt – jeder Beitrag zählt.",
-    cta: { href: "/unterstuetzen", label: "Unterstützen" },
+    icon: Scale,
+    title: "Bestehenden Weidezaun melden",
+    text: "Für Betriebe, die nicht an unserem Projekt teilnehmen und Erfahrungen mit anderen Zaunsystemen melden möchten.",
+    href: "/mitmachen/weidezaun-vergleich",
+  },
+  {
+    icon: ClipboardList,
+    title: "An einem Projekt teilnehmen",
+    text: "Für Betriebe, die sich für WILDSEEK oder wildtierschonende Weidezäune interessieren.",
+    href: "/mitmachen/projektteilnahme",
   },
 ];
 
@@ -37,56 +41,51 @@ export default function MitmachenPage() {
   return (
     <>
       <PageHero
-        eyebrow="Mitwirken"
-        title="Mitmachen"
-        lead="Ob Landwirtschaftsbetrieb, Gemeinde, Flächeneigentümerin oder Privatperson – es gibt verschiedene Möglichkeiten, den Schutz von Wildtieren aktiv zu unterstützen."
+        eyebrow="Mitmachen"
+        title="Rückmeldungen & Projektteilnahme"
+        lead="Rückmeldungen aus der Praxis helfen uns, unsere Projekte zu dokumentieren, ihre Wirkung besser zu verstehen und sie gezielt weiterzuentwickeln."
       />
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-3">
-          {WAYS.map((way) => (
-            <div
-              key={way.title}
-              className="flex flex-col rounded-2xl border border-border/80 bg-card p-7 shadow-card"
-            >
-              <span className="flex size-12 items-center justify-center rounded-full bg-brand/10 text-brand">
-                <way.icon className="size-6" aria-hidden="true" />
-              </span>
-              <h2 className="mt-5 text-lg font-semibold text-primary">
-                {way.title}
-              </h2>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {way.text}
-              </p>
+      <section className="mx-auto max-w-3xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <ul className="border-t border-border">
+          {ENTRIES.map((entry) => (
+            <li key={entry.href}>
               <Link
-                href={way.cta.href}
-                className="group mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-standard hover:gap-2.5"
+                href={entry.href}
+                className="group flex items-start gap-5 border-b border-border py-7 transition-standard hover:bg-secondary/25"
               >
-                {way.cta.label}
-                <ArrowRight className="size-4" />
+                <span className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-lg bg-secondary text-primary">
+                  <entry.icon className="size-5" aria-hidden="true" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-center gap-2 text-lg font-semibold text-primary">
+                    {entry.title}
+                  </span>
+                  <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
+                    {entry.text}
+                  </span>
+                </span>
+                <ArrowRight
+                  className="mt-2 size-5 shrink-0 text-muted-foreground transition-standard group-hover:translate-x-1 group-hover:text-brand"
+                  aria-hidden="true"
+                />
               </Link>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <div className="mt-10 rounded-2xl border border-border/70 bg-muted/50 p-6 text-sm text-muted-foreground">
-          Strukturierte Formulare – etwa für WILDSEEK-Einsatzmeldungen,
-          Rückmeldungen zu Weidezäunen und Wartelisten – sind in Vorbereitung.
-          Bis dahin erreichen Sie uns direkt über das{" "}
-          <Link href="/kontakt" className="font-medium text-primary underline-offset-4 hover:underline">
-            Kontaktformular
+        <p className="mt-10 text-sm leading-relaxed text-muted-foreground">
+          Ihre Angaben werden ausschliesslich zur Dokumentation und
+          Weiterentwicklung unserer Projekte verwendet. Wie wir mit Ihren Daten
+          umgehen, beschreibt unsere{" "}
+          <Link
+            href="/datenschutz"
+            className="font-medium text-primary underline-offset-4 hover:underline"
+          >
+            Datenschutzerklärung
           </Link>
           .
-        </div>
-
-        <div className="mt-10">
-          <Link
-            href="/unterstuetzen"
-            className={cn(buttonVariants({ variant: "brand", size: "lg" }))}
-          >
-            Jetzt unterstützen
-          </Link>
-        </div>
+        </p>
       </section>
     </>
   );

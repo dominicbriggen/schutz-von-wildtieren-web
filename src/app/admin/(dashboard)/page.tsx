@@ -11,6 +11,12 @@ const DESCRIPTIONS: Record<string, string> = {
   "/admin/bilder": "Bilder hochladen und der Bildergalerie zuordnen.",
   "/admin/spenden": "Spendentext und Beträge bearbeiten.",
   "/admin/kontakt": "Kontaktangaben bearbeiten und Nachrichten lesen.",
+  "/admin/wildseek":
+    "WILDSEEK-Rückmeldungen einsehen, filtern, auswerten und exportieren.",
+  "/admin/weidezaun":
+    "Rückmeldungen zu Projekt- und Vergleichszäunen vergleichbar einsehen.",
+  "/admin/interessenten":
+    "Interessenten- und Warteliste verwalten und Status pflegen.",
 };
 
 export default function AdminHomePage() {
