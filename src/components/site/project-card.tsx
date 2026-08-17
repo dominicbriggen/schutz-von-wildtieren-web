@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import type { Project } from "@/lib/types";
+import type { Project, ProjectStat } from "@/lib/types";
+import { ProjectStatusBadge } from "@/components/site/project-status-badge";
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  stat,
+}: {
+  project: Project;
+  stat?: ProjectStat | null;
+}) {
   return (
     <Link
       href={`/projekte/${project.slug}`}
@@ -30,6 +37,7 @@ export function ProjectCard({ project }: { project: Project }) {
         />
       </div>
       <div className="flex flex-1 flex-col gap-2 p-5 sm:p-6">
+        {stat && <ProjectStatusBadge stat={stat} className="mb-1 self-start" />}
         <h3 className="text-lg font-semibold leading-snug text-foreground">
           {project.title}
         </h3>

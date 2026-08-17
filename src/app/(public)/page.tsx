@@ -8,12 +8,13 @@ import { ProjectCard } from "@/components/site/project-card";
 import { HeroSlider } from "@/components/site/hero-slider";
 import { Reveal } from "@/components/site/reveal";
 import { SectionHeading } from "@/components/site/section-heading";
+import type { Project } from "@/lib/types";
 import {
   getHomeHero,
   getKontakt,
   getNews,
   getProjects,
-  getSuccessEntries,
+  getProjectStats,
 } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -21,25 +22,21 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [hero, projects, news, kontakt, successEntries] = await Promise.all([
+  const [hero, projects, news, kontakt, stats] = await Promise.all([
     getHomeHero(),
     getProjects(),
     getNews(),
     getKontakt(),
-    getSuccessEntries(),
+    getProjectStats(),
   ]);
 
-  const featuredProjects = projects.slice(0, 4);
+  const projectBySlug = new Map(projects.map((p) => [p.slug, p]));
+  // Die drei aktuellen Hauptprojekte – zentral über project_stats gesteuert.
+  const mainStats = (stats?.entries ?? []).filter((e) => e.is_main);
+  const featuredProjects = mainStats
+    .map((s) => projectBySlug.get(s.slug))
+    .filter((p): p is Project => Boolean(p));
   const latestNews = news[0] ?? null;
-  const highlightSuccess = successEntries.slice(-1)[0]
-    ? successEntries.filter((e) => e.project_slug === "wildseek").slice(-1)
-    : [];
-  const weidezaunSuccess = successEntries.find(
-    (e) => e.project_slug === "wildtierschonender-weidezaun"
-  );
-  const highlights = [...highlightSuccess, weidezaunSuccess].filter(
-    (e): e is NonNullable<typeof e> => Boolean(e)
-  );
 
   return (
     <>
@@ -129,7 +126,7 @@ export default async function HomePage() {
                 <ArrowRight className="size-4" />
               </Link>
             </div>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {featuredProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
@@ -138,29 +135,35 @@ export default async function HomePage() {
         </section>
       </Reveal>
 
-      {/* ───────────── Erfolge ───────────── */}
-      {highlights.length > 0 && (
+      {/* ───────────── Wirkung in Zahlen ───────────── */}
+      {mainStats.length > 0 && (
         <Reveal>
           <section className="bg-primary py-20 text-primary-foreground sm:py-28">
             <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
               <SectionHeading
                 tone="onPrimary"
                 eyebrow="Wirkung"
-                title="Konkrete Erfolge"
-                description="Messbare Ergebnisse aus unseren laufenden Projekten."
+                title="Unsere Wirkung in Zahlen"
+                description="Messbare Ergebnisse aus unseren drei laufenden Hauptprojekten."
               />
-              <div className="mt-12 grid gap-6 sm:grid-cols-2">
-                {highlights.map((entry) => (
+              <div className="mt-12 grid gap-6 sm:grid-cols-3">
+                {mainStats.map((s) => (
                   <div
-                    key={entry.id}
+                    key={s.slug}
                     className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.06] p-8 transition-standard hover:border-primary-foreground/25 hover:bg-primary-foreground/[0.09]"
                   >
-                    <p className="text-sm text-primary-foreground/65">
-                      {entry.title}
-                      {entry.period_label ? ` · ${entry.period_label}` : ""}
+                    <p className="text-3xl font-bold sm:text-4xl">
+                      {s.metric_value}{" "}
+                      <span className="text-2xl font-semibold sm:text-3xl">
+                        {s.metric_unit}
+                      </span>
                     </p>
-                    <p className="mt-3 text-3xl font-bold sm:text-4xl">
-                      {entry.value_label}
+                    <p className="mt-3 font-medium">
+                      {projectBySlug.get(s.slug)?.title ?? s.slug}
+                    </p>
+                    <p className="mt-1 text-sm text-primary-foreground/65">
+                      {s.metric_label}
+                      {s.as_of ? ` · Stand ${s.as_of}` : ""}
                     </p>
                   </div>
                 ))}
@@ -169,7 +172,7 @@ export default async function HomePage() {
                 href="/erfolge"
                 className="group mt-10 inline-flex items-center gap-1.5 text-sm font-semibold text-[#e4c78a] transition-standard hover:gap-2.5"
               >
-                Alle Erfolge ansehen
+                Zur Wirkung
                 <ArrowRight className="size-4" />
               </Link>
             </div>
