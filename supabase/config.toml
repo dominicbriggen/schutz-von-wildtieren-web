@@ -157,10 +157,8 @@ max_indexes = 5
 enabled = true
 # The base URL of your website. Used as an allow-list for redirects and for constructing URLs used
 # in emails.
-# GO-LIVE: Bei Aktivierung der Domain wird site_url auf "https://schutz-von-wildtieren.ch"
-# umgestellt (erst NACH erfolgreicher DNS-Umstellung, damit E-Mail-Links nicht auf eine
-# noch nicht erreichbare Domain zeigen). Vercel-URL bleibt als Vorschau-Redirect erlaubt.
-site_url = "https://schutz-von-wildtieren-web.vercel.app"
+# Hauptdomain (aktiv seit Go-Live). Vercel-URL bleibt als Vorschau-Redirect erlaubt.
+site_url = "https://schutz-von-wildtieren.ch"
 # The public URL that Auth serves on. Defaults to the API external URL with `/auth/v1` appended.
 # external_url = ""
 # A list of *exact* URLs that auth providers are permitted to redirect to post authentication.
