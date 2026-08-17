@@ -19,8 +19,7 @@ export default function AgbPage() {
             Diskussionsforen oder zur Online-Registrierung neuer Mitglieder)
             beziehen sich auf Funktionen, die auf dieser Website aktuell nicht
             angeboten werden. Der Verein sollte diesen Text von einer
-            fachkundigen Stelle prüfen und aktualisieren lassen. [Information
-            muss ergänzt oder bestätigt werden]
+            fachkundigen Stelle prüfen und aktualisieren lassen.
           </p>
         </div>
 

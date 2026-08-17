@@ -19,8 +19,6 @@ export default async function ImpressumPage() {
           <p className="mt-2 text-muted-foreground">
             Auf der bisherigen Website des Vereins war kein Impressum
             vorhanden. Diese Seite wurde für die neue Website neu erstellt.
-            Vereinsregister- oder UID-Nummer liegen uns nicht vor.
-            [Information muss ergänzt oder bestätigt werden]
           </p>
         </div>
 
@@ -46,7 +44,7 @@ export default async function ImpressumPage() {
             Vertreten durch
           </h2>
           <p className="mt-2">
-            {verein?.founder_name ?? "[Information muss ergänzt oder bestätigt werden]"}
+            {verein?.founder_name ?? "Vereinsvorstand"}
             {verein?.founder_role ? `, ${verein.founder_role}` : ""}
           </p>
         </section>
@@ -66,13 +64,6 @@ export default async function ImpressumPage() {
               E-Mail: {kontakt.email}
             </p>
           )}
-        </section>
-
-        <section>
-          <h2 className="font-heading text-lg font-semibold text-foreground">
-            Vereinsregister
-          </h2>
-          <p className="mt-2">[Information muss ergänzt oder bestätigt werden]</p>
         </section>
 
         <section>

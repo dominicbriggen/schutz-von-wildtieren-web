@@ -57,7 +57,7 @@ insert into content_blocks (key, data) values (
     "founder_role": "Vereinspräsident und Gründer",
     "founder_bio": "Ich, Rudolf Locher, lebe seit vielen Jahrzehnten mit Tieren. Schon als Kind entwickelte ich eine tiefe Verbundenheit zu allen Lebewesen. Ob Hund, Katze, Meerschweinchen, Hase, Fisch oder Pferd: Für mich waren Tiere immer mehr als Haustiere. Sie waren Mitbewohner, Gefährten und ein beständiger Teil meines Alltags.\n\nDiese jahrzehntelange Nähe zu Tieren hat meinen Blick geprägt. Ich habe gelernt, ihre Bedürfnisse zu erkennen und ihren Platz auf dieser Erde ernst zu nehmen. Tiere sind fühlende Wesen mit Rechten und einer Würde, die oft übersehen wird.\n\nParallel dazu zog mich die Technik schon früh in ihren Bann. In den 1970er-Jahren gründete ich mein eigenes Unternehmen im Bereich Elektronik und Telematik, das ich bis 2017 erfolgreich führte und danach an meinen Sohn übergab. Die lange unternehmerische Arbeit, das Entwickeln und Tüfteln haben mich mein Leben lang begleitet.\n\nNach der Übergabe des Unternehmens konnte ich mich erstmals zurücklehnen und die neu gewonnene Freiheit geniessen. Ganz ohne Projekte war mein Alltag aber nie. Ich tüftelte weiter an technischen Ideen, probierte Neues aus und liess die vielen Jahre Berufserfahrung nachwirken. Doch mit der Zeit merkte ich, dass mir ein langfristiges, sinnstiftendes Engagement fehlte.\n\nSo entstand 2023 der Verein «Schutz von Wildtieren». Was als ruhige Phase nach meinem Berufsleben begann, wurde zu einem neuen Schwerpunkt im späteren Lebensabschnitt. Der Tierschutz ist für mich kein berufliches Vorhaben, sondern ein persönliches Projekt, das Raum für Verantwortung, Erfahrung und Herzblut bietet.",
     "founder_photo_url": null,
-    "founder_photo_note": "[Information muss ergänzt oder bestätigt werden – auf der bisherigen Website war kein Foto von Rudolf Locher hinterlegt]",
+    "founder_photo_note": null,
     "helpers": [
       {
         "name": "Dominic Briggen",
@@ -86,7 +86,7 @@ insert into content_blocks (key, data) values (
     "telefon": "+41 78 648 50 67",
     "email": "info@schutz-von-wildtieren.ch",
     "instagram_url": null,
-    "instagram_note": "[Information muss ergänzt oder bestätigt werden – der bisherige Instagram-Link auf der alten Website war fehlerhaft]"
+    "instagram_note": null
   }$$::jsonb
 ) on conflict (key) do update set data = excluded.data;
 
@@ -97,7 +97,7 @@ insert into content_blocks (key, data) values (
     "text": "Mit Ihrer Spende unterstützen Sie den Schutz von Wildtieren, die Förderung der Artenvielfalt sowie den Erhalt unserer Umwelt. Jeder Beitrag hilft uns, wertvolle Lebensräume zu bewahren und konkrete Tierschutzprojekte umzusetzen.\n\nUnser Verein ist gemeinnützig anerkannt und somit steuerbefreit. Ihre Spende können Sie in der Schweiz von den Steuern abziehen. Gerne stellen wir Ihnen eine Spendenbestätigung aus.\n\nDanke, dass Sie mithelfen, Natur und Tiere zu schützen!",
     "amounts": [20, 50, 100, 200],
     "online_payment_ready": false,
-    "placeholder_note": "Online-Spenden über die neue Website sind in Vorbereitung. [Information muss ergänzt oder bestätigt werden] Bis zur Freischaltung einer eigenen, sicheren Zahlungslösung erreichen Sie uns bitte direkt über die Kontaktangaben, um eine Spende zu vereinbaren.",
+    "placeholder_note": "Online-Spenden über die Website sind in Vorbereitung.",
     "hero_image_url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/originals/spenden-hero.jpg"
   }$$::jsonb
 ) on conflict (key) do update set data = excluded.data;

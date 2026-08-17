@@ -58,7 +58,7 @@ export default async function ErfolgePage() {
       <section className="mx-auto max-w-4xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
         {byProject.size === 0 ? (
           <p className="text-muted-foreground">
-            [Information muss ergänzt oder bestätigt werden]
+            Zurzeit sind keine Einträge verfügbar.
           </p>
         ) : (
           <div className="space-y-14">

@@ -51,7 +51,7 @@ export default async function KontaktPage() {
                 {kontakt.email}
               </a>
             </div>
-            {kontakt.instagram_url ? (
+            {kontakt.instagram_url && (
               <div className="flex items-center gap-3 py-1.5">
                 <ExternalLink className="size-5 shrink-0 text-brand" aria-hidden="true" />
                 <a
@@ -63,12 +63,6 @@ export default async function KontaktPage() {
                   Instagram
                 </a>
               </div>
-            ) : (
-              kontakt.instagram_note && (
-                <p className="mt-3 text-sm italic text-muted-foreground">
-                  {kontakt.instagram_note}
-                </p>
-              )
             )}
           </div>
         )}
