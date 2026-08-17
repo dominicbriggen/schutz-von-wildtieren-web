@@ -27,6 +27,10 @@ function getTransporter(): Transporter {
       port: PORT,
       secure: PORT === 465, // 465 = implicit TLS, 587 = STARTTLS
       auth: { user: USER, pass: PASS },
+      // Fail fast so an SMTP outage can never noticeably delay a submission.
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 15000,
     });
   }
   return transporter;
@@ -51,6 +55,9 @@ export async function sendMail(opts: {
     text: opts.text,
     replyTo: opts.replyTo,
   });
+  // Non-sensitive confirmation for the server logs (recipient + message id,
+  // never any credentials).
+  console.log(`[email] gesendet an ${opts.to} (id ${info.messageId})`);
   // For test SMTP (Ethereal) this yields a viewable preview URL; for real
   // providers it returns false and nothing is logged.
   const preview = nodemailer.getTestMessageUrl(info);

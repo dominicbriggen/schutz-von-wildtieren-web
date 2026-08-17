@@ -88,8 +88,9 @@ async function dispatch(
 ): Promise<void> {
   if (!isEmailConfigured()) return;
   const confirm = buildConfirmation(submitterName, confirmVariant);
-  // Both e-mails are independent; one failing must not prevent the other.
-  await Promise.allSettled([
+  // Both e-mails are independent; one failing must not prevent the other, and
+  // neither may bubble up (the submission is already saved).
+  const results = await Promise.allSettled([
     sendMail({
       to: NOTIFY_TO,
       subject,
@@ -105,6 +106,15 @@ async function dispatch(
       replyTo: NOTIFY_TO,
     }),
   ]);
+  const labels = ["Benachrichtigung", "Bestätigung"];
+  results.forEach((r, i) => {
+    if (r.status === "rejected") {
+      console.error(
+        `[email] ${labels[i]} konnte nicht gesendet werden:`,
+        r.reason instanceof Error ? r.reason.message : r.reason
+      );
+    }
+  });
 }
 
 // ── Per-form senders ────────────────────────────────────────────────────
