@@ -17,7 +17,9 @@ export function AdminSidebar() {
       className="flex h-full flex-col bg-primary text-primary-foreground"
     >
       <div className="flex items-center gap-2.5 border-b border-primary-foreground/15 px-5 py-5">
-        <Logo className="h-8" />
+        <span className="flex shrink-0 items-center justify-center rounded-md bg-background p-1">
+          <Logo className="h-7" />
+        </span>
         <div>
           <p className="text-sm font-semibold leading-tight">
             Schutz von Wildtieren
