@@ -58,7 +58,7 @@ export async function SiteFooter() {
             { href: "/erfolge", label: "Erfolge" },
             { href: "/aktuelles", label: "Aktuelles" },
             { href: "/verein", label: "Über uns" },
-            { href: "/unterstuetzen", label: "Spenden" },
+            { href: "/unterstuetzen", label: "Unterstützen" },
             { href: "/kontakt", label: "Kontakt" },
           ]}
         />

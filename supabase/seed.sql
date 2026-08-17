@@ -19,11 +19,11 @@ insert into content_blocks (key, data) values (
   'home_hero',
   $${
     "headline": "Gemeinsam für die Natur und unsere Wildtiere.",
-    "subline": "Wir schützen Wildtiere und ihre Lebensräume in der Schweiz – mit konkreten, wirkungsvollen Projekten.",
+    "subline": "Wir entwickeln und finanzieren konkrete Lösungen zum Schutz von Wildtieren und ihren Lebensräumen in der Schweiz.",
     "quote": "Wenn man seine Zeit mit Tieren verbringt, befindet man sich immer in guter Gesellschaft.",
     "intro_title": "Unser Verein",
     "intro_text": "Der Verein «Schutz von Wildtieren» ist eine gemeinnützige Organisation, die sich für die Umwelt und den Tierschutz einsetzt.\n\nWir suchen innovative Lösungen und setzen diese in der Praxis um. Zudem verfolgen wir Pilotprojekte, die der Umwelt und dem Tierschutz dienen.",
-    "primary_cta_label": "Projekte entdecken",
+    "primary_cta_label": "Unsere Projekte",
     "primary_cta_href": "/projekte",
     "secondary_cta_label": "Jetzt unterstützen",
     "secondary_cta_href": "/unterstuetzen",

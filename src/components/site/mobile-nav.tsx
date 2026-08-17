@@ -38,7 +38,7 @@ export function MobileNav() {
               render={
                 <Link
                   href={link.href}
-                  className="rounded-xl px-3.5 py-3 text-base font-medium text-foreground transition-standard hover:bg-muted"
+                  className="rounded-lg px-3.5 py-3 text-base font-medium text-foreground transition-standard hover:bg-muted"
                 />
               }
             >
@@ -50,11 +50,11 @@ export function MobileNav() {
             render={
               <Link
                 href="/unterstuetzen"
-                className="mt-3 rounded-xl bg-brand px-3.5 py-3 text-center text-base font-semibold text-brand-foreground shadow-sm transition-standard hover:bg-[color-mix(in_oklch,var(--brand),black_12%)]"
+                className="mt-3 rounded-lg bg-brand px-3.5 py-3 text-center text-base font-semibold text-brand-foreground transition-standard hover:bg-[color-mix(in_oklch,var(--brand),black_12%)]"
               />
             }
           >
-            Spenden
+            Unterstützen
           </SheetClose>
         </nav>
       </SheetContent>
