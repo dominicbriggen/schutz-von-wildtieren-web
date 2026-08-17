@@ -6,7 +6,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { PageHero } from "@/components/site/page-hero";
 import { ProseText } from "@/components/site/prose-text";
-import { getProjectBySlug, getSuccessEntries } from "@/lib/content";
+import { ProjectStatusBadge } from "@/components/site/project-status-badge";
+import {
+  findProjectStat,
+  getProjectBySlug,
+  getProjectStats,
+  getSuccessEntries,
+} from "@/lib/content";
 import { createStaticClient } from "@/lib/supabase/static";
 
 export async function generateStaticParams() {
@@ -39,13 +45,15 @@ export default async function ProjektDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const [project, successEntries] = await Promise.all([
+  const [project, successEntries, stats] = await Promise.all([
     getProjectBySlug(slug),
     getSuccessEntries(),
+    getProjectStats(),
   ]);
 
   if (!project) notFound();
 
+  const stat = findProjectStat(stats, project.slug);
   const results = successEntries.filter((e) => e.project_slug === project.slug);
   const galleryImages = project.images.filter(
     (url) => url !== project.cover_image_url
@@ -100,6 +108,30 @@ export default async function ProjektDetailPage({
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+          {stat && (stat.metric_value || stat.status !== "aktiv") && (
+            <div className="rounded-2xl border border-border/80 bg-card p-6 shadow-card">
+              <ProjectStatusBadge stat={stat} className="mb-4" />
+              {stat.metric_value && (
+                <>
+                  <p className="text-3xl font-bold text-primary">
+                    {stat.metric_value}{" "}
+                    <span className="text-xl font-semibold">{stat.metric_unit}</span>
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {stat.metric_label}
+                    {stat.as_of ? ` · Stand ${stat.as_of}` : ""}
+                  </p>
+                </>
+              )}
+              {stat.notes && stat.notes.length > 0 && (
+                <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
+                  {stat.notes.map((n, i) => (
+                    <li key={i}>• {n}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
           {results.length > 0 && (
             <div className="rounded-2xl border border-border/80 bg-card p-6 shadow-card">
               <h2 className="text-lg font-semibold text-primary">

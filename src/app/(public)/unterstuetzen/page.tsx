@@ -22,7 +22,7 @@ export default async function UnterstuetzenPage() {
       <>
         <PageHero title="Unterstützen" />
         <p className="mx-auto max-w-3xl px-4 py-16 text-muted-foreground">
-          [Information muss ergänzt oder bestätigt werden]
+          Die Angaben werden derzeit überarbeitet.
         </p>
       </>
     );

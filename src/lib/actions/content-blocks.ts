@@ -70,6 +70,45 @@ export async function updateHomeHero(
   return { status: "success", message: "Startseite gespeichert." };
 }
 
+const projectStatSchema = z.object({
+  slug: z.string().min(1),
+  is_main: z.boolean(),
+  status: z.enum(["aktiv", "pausiert", "archiviert"]),
+  status_label: z.string().optional(),
+  metric_value: z.string().optional(),
+  metric_unit: z.string().optional(),
+  metric_label: z.string().optional(),
+  as_of: z.string().optional(),
+  notes: z.array(z.string()).optional(),
+});
+
+const projectStatsSchema = z.object({
+  entries: z.array(projectStatSchema),
+});
+
+export async function updateProjectStats(
+  _prev: FormState,
+  formData: FormData
+): Promise<FormState> {
+  let entries: unknown = [];
+  try {
+    entries = JSON.parse((formData.get("entries") as string) || "[]");
+  } catch {
+    return { status: "error", message: "Ungültige Kennzahlen-Daten." };
+  }
+  const parsed = projectStatsSchema.safeParse({ entries });
+  if (!parsed.success) {
+    return { status: "error", message: parsed.error.issues[0]?.message };
+  }
+  const error = await saveBlock("project_stats", parsed.data);
+  if (error) return { status: "error", message: "Speichern fehlgeschlagen." };
+  // Kennzahlen erscheinen auf mehreren Seiten – alle revalidieren.
+  revalidatePath("/");
+  revalidatePath("/projekte");
+  revalidatePath("/erfolge");
+  return { status: "success", message: "Kennzahlen gespeichert." };
+}
+
 const helperSchema = z.object({
   name: z.string().min(1),
   role: z.string(),

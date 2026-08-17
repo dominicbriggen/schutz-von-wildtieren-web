@@ -129,3 +129,33 @@ export type FooterData = {
   vereinsname: string;
   gruendungsjahr: number;
 };
+
+/** Projektstatus zur einheitlichen Kennzeichnung (aktiv = eines der aktuellen
+ *  Hauptprojekte oder laufend; pausiert / archiviert = nachrangig darstellen). */
+export type ProjectStatus = "aktiv" | "pausiert" | "archiviert";
+
+/** Zentrale Kennzahl je Projekt. Einzige Quelle der Wahrheit für die
+ *  Wirkungszahlen – wird auf Startseite, Projektseiten und (später) der
+ *  Seite „Wirkung" wiederverwendet. Verknüpft über `slug` mit `projects`. */
+export type ProjectStat = {
+  slug: string;
+  /** true = eines der drei aktuellen Hauptprojekte. */
+  is_main: boolean;
+  status: ProjectStatus;
+  /** Freitext zum Status, z. B. „Projektpause seit Dezember 2025". */
+  status_label?: string;
+  /** Kennzahl-Wert als Text (erlaubt Formatierung wie „18'000"). */
+  metric_value?: string;
+  /** Einheit, z. B. „Systeme", „Meter", „Inseln". */
+  metric_unit?: string;
+  /** Beschriftung, z. B. „finanzierte Systeme". */
+  metric_label?: string;
+  /** Stichtag, z. B. „Juli 2026". */
+  as_of?: string;
+  /** Zusätzliche Hinweiszeilen, z. B. „Weitere Inseln bereits finanziert". */
+  notes?: string[];
+};
+
+export type ProjectStatsData = {
+  entries: ProjectStat[];
+};

@@ -29,7 +29,7 @@ export default async function BilderPage() {
       <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
         {byYear.size === 0 ? (
           <p className="text-muted-foreground">
-            [Information muss ergänzt oder bestätigt werden]
+            Zurzeit sind keine Bilder verfügbar.
           </p>
         ) : (
           <div className="space-y-14">

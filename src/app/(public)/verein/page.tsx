@@ -20,7 +20,7 @@ export default async function VereinPage() {
       <>
         <PageHero title="Verein" />
         <p className="mx-auto max-w-3xl px-4 py-16 text-muted-foreground">
-          [Information muss ergänzt oder bestätigt werden]
+          Die Vereinsangaben werden derzeit überarbeitet.
         </p>
       </>
     );
@@ -36,32 +36,29 @@ export default async function VereinPage() {
 
       <Reveal>
         <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <div className="grid gap-8 sm:grid-cols-[200px_1fr] sm:items-start">
-            <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-full bg-muted shadow-sm ring-4 ring-background sm:w-full">
-              {verein.founder_photo_url ? (
+          <div
+            className={
+              verein.founder_photo_url
+                ? "grid gap-8 sm:grid-cols-[200px_1fr] sm:items-start"
+                : "max-w-3xl"
+            }
+          >
+            {verein.founder_photo_url && (
+              <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-full bg-muted shadow-sm ring-4 ring-background sm:w-full">
                 <Image
                   src={verein.founder_photo_url}
                   alt={verein.founder_name}
                   fill
                   className="object-cover"
                 />
-              ) : (
-                <div className="flex h-full items-center justify-center px-2 text-center text-xs text-muted-foreground">
-                  Kein Foto vorhanden
-                </div>
-              )}
-            </div>
+              </div>
+            )}
             <div>
               <h2 className="text-2xl font-semibold text-primary">
                 {verein.founder_name}
               </h2>
               <p className="text-sm font-medium text-accent">{verein.founder_role}</p>
               <ProseText text={verein.founder_bio} className="mt-4" />
-              {verein.founder_photo_note && (
-                <p className="mt-4 text-sm italic text-muted-foreground">
-                  {verein.founder_photo_note}
-                </p>
-              )}
             </div>
           </div>
         </section>

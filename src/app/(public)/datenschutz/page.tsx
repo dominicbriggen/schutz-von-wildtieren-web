@@ -22,7 +22,6 @@ export default async function DatenschutzPage() {
             Website neu erstellt und beschreibt, wie diese Website tatsächlich
             funktioniert. Er ersetzt keine Rechtsberatung; einzelne Angaben
             zum Verein sollten von einer fachkundigen Stelle geprüft werden.
-            [Information muss ergänzt oder bestätigt werden]
           </p>
         </div>
 
