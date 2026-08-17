@@ -29,10 +29,10 @@ insert into content_blocks (key, data) values (
     "secondary_cta_href": "/unterstuetzen",
     "hero_images": [
       {
-        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-reh-wiese.jpg",
-        "alt": "Reh mit Kitz auf einer blühenden Sommerwiese",
-        "credit": "Foto: Maria Argiroudaki / Pexels",
-        "position": "50% 50%"
+        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-wildbiene-distel.jpg",
+        "alt": "Hummel sammelt Nektar auf einer violetten Distelblüte",
+        "credit": "Foto: Michelle Reeves / Pexels",
+        "position": "50% 32%"
       },
       {
         "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-igel-blume.jpg",
@@ -41,10 +41,10 @@ insert into content_blocks (key, data) values (
         "position": "42% 50%"
       },
       {
-        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-wildbiene-distel.jpg",
-        "alt": "Hummel sammelt Nektar auf einer violetten Distelblüte",
-        "credit": "Foto: Michelle Reeves / Pexels",
-        "position": "50% 32%"
+        "url": "https://rfxinyirkhiyhnffbecx.supabase.co/storage/v1/object/public/media/hero/hero-reh-wiese.jpg",
+        "alt": "Reh mit Kitz auf einer blühenden Sommerwiese",
+        "credit": "Foto: Maria Argiroudaki / Pexels",
+        "position": "50% 50%"
       }
     ]
   }$$::jsonb
