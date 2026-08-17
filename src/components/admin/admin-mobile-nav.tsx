@@ -13,7 +13,9 @@ export function AdminMobileNav() {
   return (
     <div className="flex items-center justify-between border-b border-border bg-primary px-4 py-3 text-primary-foreground md:hidden">
       <div className="flex items-center gap-2">
-        <Logo className="h-7" />
+        <span className="flex shrink-0 items-center justify-center rounded-md bg-background p-1">
+          <Logo className="h-6" />
+        </span>
         <span className="text-sm font-semibold">Verwaltungsbereich</span>
       </div>
       <Sheet open={open} onOpenChange={setOpen}>
