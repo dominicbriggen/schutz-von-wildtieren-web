@@ -40,8 +40,11 @@ export async function proxy(request: NextRequest) {
   // The page itself refuses to render a usable form without a valid
   // client-side session.
   const isSetPasswordRoute = request.nextUrl.pathname === "/admin/set-password";
+  // Public by necessity: the password-reset request page must be reachable by
+  // someone who is precisely NOT signed in.
+  const isForgotRoute = request.nextUrl.pathname === "/admin/passwort-vergessen";
 
-  if (isAdminRoute && !isLoginRoute && !isSetPasswordRoute) {
+  if (isAdminRoute && !isLoginRoute && !isSetPasswordRoute && !isForgotRoute) {
     if (!user) {
       const loginUrl = new URL("/admin/login", request.url);
       return NextResponse.redirect(loginUrl);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,7 +39,15 @@ export function LoginForm() {
           />
         </div>
         <div>
-          <Label htmlFor="password">Passwort</Label>
+          <div className="flex items-center justify-between">
+            <Label htmlFor="password">Passwort</Label>
+            <Link
+              href="/admin/passwort-vergessen"
+              className="text-xs font-medium text-primary underline-offset-4 hover:underline"
+            >
+              Passwort vergessen?
+            </Link>
+          </div>
           <Input
             id="password"
             name="password"

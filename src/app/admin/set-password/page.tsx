@@ -9,7 +9,7 @@ import { Logo } from "@/components/logo";
 import { createClient } from "@/lib/supabase/client";
 
 const INVALID_LINK_MESSAGE =
-  "Dieser Einladungslink ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen Link an.";
+  "Dieser Link ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen Link an.";
 
 export default function SetPasswordPage() {
   const router = useRouter();
@@ -94,8 +94,11 @@ export default function SetPasswordPage() {
       return;
     }
 
+    // Keine automatische, dauerhafte Anmeldung nach dem Zurücksetzen: Session
+    // beenden, damit sich die Person mit dem neuen Passwort neu anmelden muss.
+    await supabase.auth.signOut();
     setSuccess(true);
-    setTimeout(() => router.push("/admin"), 1500);
+    setTimeout(() => router.push("/admin/login"), 1500);
   }
 
   return (
@@ -127,7 +130,8 @@ export default function SetPasswordPage() {
           </div>
         ) : success ? (
           <p role="status" className="mt-8 text-center text-sm text-foreground">
-            Passwort gespeichert. Sie werden weitergeleitet…
+            Passwort gespeichert. Bitte melden Sie sich jetzt mit Ihrem neuen
+            Passwort an…
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="mt-8 space-y-5">
